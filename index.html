@@ -6,20 +6,21 @@
     <title>Sensus Saúde — Monitoramento Inteligente em Saúde Pública</title>
     <meta name="description" content="Plataforma de inteligência de dados e monitoramento epidemiológico em saúde pública para a UFMG Jovem.">
     
-    <!-- Tipografia Inter via Google Fonts -->
+    <!-- Tipografia Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Ícones Lucide -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
+    <!-- Estilos da Aplicação -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Script de Ícones Lucide (Carregamento com Fallback) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
     <!-- ==========================================
-         TELA DE LOGIN / AUTENTICAÇÃO
+         TELA DE LOGIN
     =========================================== -->
     <section id="login-screen" class="login-container">
         <div class="login-wrapper">
@@ -68,7 +69,7 @@
     </section>
 
     <!-- ==========================================
-         APLICAÇÃO PRINCIPAL (DASHBOARD SUITE)
+         APLICAÇÃO PRINCIPAL (DASHBOARD)
     =========================================== -->
     <div id="app-screen" class="app-container hidden">
         
@@ -149,10 +150,9 @@
             </button>
         </header>
 
-        <!-- CONTEÚDO PRINCIPAL (LAYOUT DINÂMICO) -->
+        <!-- CONTEÚDO PRINCIPAL -->
         <main class="main-content" id="main-content">
             
-            <!-- BARRA SUPERIOR DO CONTEÚDO -->
             <header class="top-bar">
                 <div class="user-greeting">
                     <span class="greeting-subtitle">Monitoramento contínuo</span>
@@ -167,13 +167,12 @@
                 </div>
             </header>
 
-            <!-- PÁGINA: VISÃO GERAL (DASHBOARD) -->
+            <!-- PÁGINA: VISÃO GERAL -->
             <section id="page-dashboard" class="view-page active">
                 <div class="page-intro">
                     <p class="text-secondary">Acompanhe os principais indicadores de vigilância epidemiológica e imunização.</p>
                 </div>
 
-                <!-- CARDS DE INDICADORES -->
                 <div class="metrics-grid">
                     <article class="metric-card">
                         <div class="metric-header">
@@ -235,7 +234,6 @@
                     </article>
                 </div>
 
-                <!-- GRÁFICO E ALERTAS -->
                 <div class="dashboard-grid">
                     <div class="card chart-card">
                         <div class="card-header">
@@ -260,9 +258,7 @@
                             </div>
                             <button class="btn-text nav-link-trigger" data-target="page-alerts">Ver todos</button>
                         </div>
-                        <div class="alerts-list-mini" id="dashboard-recent-alerts">
-                            <!-- Inserido dinamicamente pelo JS -->
-                        </div>
+                        <div class="alerts-list-mini" id="dashboard-recent-alerts"></div>
                     </div>
                 </div>
             </section>
@@ -294,9 +290,7 @@
                                     <th>Tendência</th>
                                 </tr>
                             </thead>
-                            <tbody id="diseases-table-body">
-                                <!-- Preenchido dinamicamente pelo JS -->
-                            </tbody>
+                            <tbody id="diseases-table-body"></tbody>
                         </table>
                     </div>
                 </div>
@@ -329,9 +323,7 @@
                     <h3 class="subsection-title">Vacinas do Programa Nacional de Imunizações (PNI)</h3>
                 </div>
 
-                <div class="vaccines-grid" id="vaccines-grid-container">
-                    <!-- Cards preenchidos via JS -->
-                </div>
+                <div class="vaccines-grid" id="vaccines-grid-container"></div>
             </section>
 
             <!-- PÁGINA: ALERTAS -->
@@ -349,9 +341,7 @@
                     </div>
                 </div>
 
-                <div class="alerts-full-list" id="alerts-full-container">
-                    <!-- Renderizado dinamicamente via JS -->
-                </div>
+                <div class="alerts-full-list" id="alerts-full-container"></div>
             </section>
 
             <!-- PÁGINA: MINHA FAMÍLIA -->
@@ -367,9 +357,7 @@
                     </button>
                 </div>
 
-                <div class="family-grid" id="family-members-container">
-                    <!-- Renderizado pelo JS -->
-                </div>
+                <div class="family-grid" id="family-members-container"></div>
             </section>
 
             <!-- PÁGINA: CONFIGURAÇÕES -->
@@ -424,9 +412,7 @@
         </main>
     </div>
 
-    <!-- ==========================================
-         MODAL: ADICIONAR FAMILIAR
-    =========================================== -->
+    <!-- MODAL: ADICIONAR FAMILIAR -->
     <div id="family-modal" class="modal-backdrop hidden" aria-hidden="true" role="dialog">
         <div class="modal-box">
             <header class="modal-header">
@@ -460,6 +446,7 @@
         </div>
     </div>
 
+    <!-- Script da Aplicação -->
     <script src="app.js"></script>
 </body>
 </html>
