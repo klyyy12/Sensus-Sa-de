@@ -10,123 +10,188 @@ const userAvatar = document.getElementById("userAvatar");
 const settingsEmail = document.getElementById("settingsEmail");
 
 const navItems = document.querySelectorAll(".nav-item");
-const sections = document.querySelectorAll(".dashboard-section");
+const pages = document.querySelectorAll(".page");
 
-// =========================
-// LOGIN
-// =========================
+const quickNavigationButtons = document.querySelectorAll("[data-go]");
 
-function showApp(email) {
-    if (!email) return;
 
-    loginScreen.style.display = "none";
-    app.classList.add("visible");
+/* =====================================================
+   UTILIDADES
+===================================================== */
 
-    const name = email
-        .split("@")[0]
-        .replace(/[._-]/g, " ")
-        .replace(/\b\w/g, letter => letter.toUpperCase());
+function formatUserName(email) {
 
-    userName.textContent = name;
-    userEmail.textContent = email;
-    settingsEmail.textContent = email;
+    const username = email.split("@")[0];
 
-    userAvatar.textContent = name.charAt(0).toUpperCase();
-
-    localStorage.setItem("sensus_email", email);
+    return username
+        .replace(/[._-]+/g, " ")
+        .trim()
+        .split(" ")
+        .filter(Boolean)
+        .map(word => {
+            return word.charAt(0).toUpperCase() + word.slice(1);
+        })
+        .join(" ");
 }
 
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+function showApp(email) {
+
+    const name = formatUserName(email);
+
+    loginScreen.style.display = "none";
+
+    app.classList.add("visible");
+
+    userName.textContent = name || "Usuário";
+    userEmail.textContent = email;
+
+    settingsEmail.textContent = email;
+
+    userAvatar.textContent =
+        (name.charAt(0) || "U").toUpperCase();
+
+    localStorage.setItem(
+        "sensus_email",
+        email
+    );
+
+    openPage("overview");
+}
+
+
 function showLogin() {
+
     app.classList.remove("visible");
+
     loginScreen.style.display = "flex";
 
     localStorage.removeItem("sensus_email");
+
+    document.getElementById("email").value = "";
 }
 
-// =========================
-// FORMULÁRIO DE LOGIN
-// =========================
 
-if (loginForm) {
-    loginForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+loginForm.addEventListener("submit", event => {
 
-        const emailInput = document.getElementById("email");
+    event.preventDefault();
 
-        if (!emailInput) return;
+    const emailInput = document.getElementById("email");
 
-        const email = emailInput.value.trim();
+    const email = emailInput.value.trim();
 
-        if (!email) {
-            emailInput.focus();
-            return;
-        }
+    if (!email) {
+        emailInput.focus();
+        return;
+    }
 
-        if (!emailInput.checkValidity()) {
-            emailInput.reportValidity();
-            return;
-        }
+    if (!emailInput.checkValidity()) {
+        emailInput.reportValidity();
+        return;
+    }
 
-        showApp(email);
+    showApp(email);
+});
+
+
+logoutButton.addEventListener("click", () => {
+
+    showLogin();
+
+});
+
+
+/* =====================================================
+   NAVEGAÇÃO
+===================================================== */
+
+function openPage(target) {
+
+    const selectedPage = document.getElementById(target);
+
+    if (!selectedPage) {
+        return;
+    }
+
+
+    pages.forEach(page => {
+
+        page.classList.remove("active-page");
+
     });
-}
 
-// =========================
-// LOGOUT
-// =========================
 
-if (logoutButton) {
-    logoutButton.addEventListener("click", function () {
-        showLogin();
+    selectedPage.classList.add("active-page");
+
+
+    navItems.forEach(item => {
+
+        item.classList.toggle(
+            "active",
+            item.dataset.section === target
+        );
+
     });
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
 }
 
-// =========================
-// NAVEGAÇÃO
-// =========================
 
 navItems.forEach(item => {
-    item.addEventListener("click", function () {
+
+    item.addEventListener("click", () => {
 
         const target = item.dataset.section;
 
-        if (!target) return;
+        openPage(target);
 
-        // Remove ativo de todos
-        navItems.forEach(nav => {
-            nav.classList.remove("active");
-        });
-
-        // Ativa o botão selecionado
-        item.classList.add("active");
-
-        // Esconde todas as páginas
-        sections.forEach(section => {
-            section.classList.remove("active-section");
-        });
-
-        // Mostra a página selecionada
-        const selectedSection = document.getElementById(target);
-
-        if (selectedSection) {
-            selectedSection.classList.add("active-section");
-        }
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
     });
+
 });
 
-// =========================
-// SESSÃO SALVA
-// =========================
 
-const savedEmail = localStorage.getItem("sensus_email");
+/* =====================================================
+   BOTÕES INTERNOS
+===================================================== */
+
+quickNavigationButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const target = button.dataset.go;
+
+        openPage(target);
+
+    });
+
+});
+
+
+/* =====================================================
+   SESSÃO SALVA
+===================================================== */
+
+const savedEmail =
+    localStorage.getItem("sensus_email");
+
 
 if (savedEmail) {
+
     showApp(savedEmail);
+
 } else {
-    showLogin();
+
+    loginScreen.style.display = "flex";
+
+    app.classList.remove("visible");
+
 }
