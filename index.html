@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sensus Saúde</title>
+    <title>Sensus Saúde — Inteligência em Saúde Pública</title>
 
     <meta
         name="description"
-        content="Sensus Saúde — monitoramento inteligente de dados de saúde pública."
+        content="Sensus Saúde — plataforma de monitoramento e inteligência em saúde pública."
     >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,176 +19,257 @@
         rel="stylesheet"
     >
 
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/font/lucide.css"
+    >
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- LOGIN -->
+    <!-- =====================================================
+         LOGIN
+    ====================================================== -->
+
     <section class="login-screen" id="loginScreen">
 
-        <div class="login-brand">
-            <div class="brand-mark">S</div>
+        <div class="login-orb orb-one"></div>
+        <div class="login-orb orb-two"></div>
 
-            <div>
-                <strong>Sensus</strong>
-                <span>Saúde pública inteligente</span>
+        <header class="login-header">
+            <div class="brand">
+                <div class="brand-symbol">
+                    <span>S</span>
+                </div>
+
+                <div class="brand-copy">
+                    <strong>Sensus</strong>
+                    <span>Saúde pública inteligente</span>
+                </div>
             </div>
-        </div>
 
-        <div class="login-content">
+            <span class="project-label">UFMG JOVEM · 2026</span>
+        </header>
 
-            <div class="login-copy">
-                <span class="eyebrow">MONITORAMENTO EM SAÚDE</span>
+        <div class="login-layout">
+
+            <div class="login-intro">
+
+                <div class="eyebrow">
+                    <span></span>
+                    INTELIGÊNCIA EM SAÚDE PÚBLICA
+                </div>
 
                 <h1>
-                    Dados que ajudam
-                    <br>
-                    a <span>proteger vidas.</span>
+                    Entender os dados.
+                    <em>Antecipar o cuidado.</em>
                 </h1>
 
                 <p>
-                    Uma plataforma para transformar dados de saúde pública
-                    em informação clara, alertas e decisões mais rápidas.
+                    O Sensus transforma dados de saúde pública em
+                    informação clara para acompanhar tendências,
+                    identificar sinais de alerta e apoiar decisões.
                 </p>
 
-                <div class="login-features">
-                    <div>
-                        <span class="feature-number">01</span>
-                        <p>Dados públicos</p>
+                <div class="login-proof">
+
+                    <div class="proof-item">
+                        <strong>01</strong>
+                        <span>Monitoramento</span>
                     </div>
 
-                    <div>
-                        <span class="feature-number">02</span>
-                        <p>Monitoramento</p>
+                    <div class="proof-line"></div>
+
+                    <div class="proof-item">
+                        <strong>02</strong>
+                        <span>Prevenção</span>
                     </div>
 
-                    <div>
-                        <span class="feature-number">03</span>
-                        <p>Alertas inteligentes</p>
+                    <div class="proof-line"></div>
+
+                    <div class="proof-item">
+                        <strong>03</strong>
+                        <span>Decisão</span>
                     </div>
+
                 </div>
+
             </div>
 
             <div class="login-card">
 
-                <div class="card-top">
-                    <span class="small-label">ACESSAR PLATAFORMA</span>
+                <div class="card-badge">
+                    <i class="icon icon-shield-check"></i>
+                    ACESSO SEGURO
+                </div>
 
-                    <h2>Bem-vindo.</h2>
-
+                <div class="login-card-heading">
+                    <h2>Bem-vindo ao Sensus.</h2>
                     <p>
-                        Entre usando seu endereço de e-mail.
+                        Acesse sua área usando seu endereço de e-mail.
                     </p>
                 </div>
 
                 <form id="loginForm">
 
-                    <label for="email">E-mail</label>
+                    <label for="email">Seu e-mail</label>
 
-                    <div class="input-wrapper">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 5h16v14H4z"/>
-                            <path d="m4 6 8 6 8-6"/>
-                        </svg>
+                    <div class="input-shell">
+
+                        <i class="icon icon-mail"></i>
 
                         <input
                             type="email"
                             id="email"
-                            placeholder="seu@email.com"
+                            placeholder="voce@email.com"
                             autocomplete="email"
                             required
                         >
+
                     </div>
 
-                    <button type="submit" class="primary-button">
-                        Entrar
-                        <span>→</span>
+                    <button class="login-button" type="submit">
+                        <span>Continuar</span>
+                        <i class="icon icon-arrow-up-right"></i>
                     </button>
 
-                    <p class="login-note">
+                    <p class="login-disclaimer">
                         O acesso é realizado exclusivamente por e-mail.
                     </p>
 
                 </form>
 
+                <div class="login-card-footer">
+                    <span>Projeto acadêmico</span>
+                    <span>•</span>
+                    <span>Sensus Saúde</span>
+                </div>
+
             </div>
 
         </div>
 
-        <div class="login-footer">
-            <span>Sensus Saúde</span>
-            <span>Projeto UFMG Jovem</span>
-        </div>
+        <footer class="login-footer">
+            <span>© 2026 Sensus Saúde</span>
+
+            <div>
+                <span>Dados públicos</span>
+                <span>Monitoramento</span>
+                <span>Prevenção</span>
+            </div>
+        </footer>
 
     </section>
 
 
-    <!-- APP -->
+    <!-- =====================================================
+         APPLICATION
+    ====================================================== -->
+
     <main class="app" id="app">
 
         <!-- SIDEBAR -->
+
         <aside class="sidebar">
 
-            <div class="sidebar-brand">
-                <div class="brand-mark">S</div>
+            <div>
 
-                <div>
-                    <strong>Sensus</strong>
-                    <span>Saúde</span>
+                <div class="sidebar-brand">
+
+                    <div class="brand-symbol">
+                        <span>S</span>
+                    </div>
+
+                    <div class="brand-copy">
+                        <strong>Sensus</strong>
+                        <span>Health intelligence</span>
+                    </div>
+
                 </div>
+
+                <div class="sidebar-status">
+                    <span class="status-dot"></span>
+                    Ambiente demonstrativo
+                </div>
+
+                <nav class="navigation">
+
+                    <span class="navigation-label">PLATAFORMA</span>
+
+                    <button
+                        class="nav-item active"
+                        data-section="overview"
+                    >
+                        <i class="icon icon-layout-dashboard"></i>
+                        <span>Visão geral</span>
+                    </button>
+
+                    <button
+                        class="nav-item"
+                        data-section="diseases"
+                    >
+                        <i class="icon icon-activity"></i>
+                        <span>Doenças</span>
+                    </button>
+
+                    <button
+                        class="nav-item"
+                        data-section="vaccines"
+                    >
+                        <i class="icon icon-syringe"></i>
+                        <span>Vacinação</span>
+                    </button>
+
+                    <button
+                        class="nav-item"
+                        data-section="alerts"
+                    >
+                        <i class="icon icon-bell-ring"></i>
+                        <span>Alertas</span>
+                        <b class="nav-count">7</b>
+                    </button>
+
+                    <span class="navigation-label second-label">CUIDADO</span>
+
+                    <button
+                        class="nav-item"
+                        data-section="family"
+                    >
+                        <i class="icon icon-users"></i>
+                        <span>Minha família</span>
+                    </button>
+
+                    <button
+                        class="nav-item"
+                        data-section="settings"
+                    >
+                        <i class="icon icon-settings-2"></i>
+                        <span>Configurações</span>
+                    </button>
+
+                </nav>
+
             </div>
-
-            <nav>
-
-                <p class="nav-title">VISÃO GERAL</p>
-
-                <button class="nav-item active" data-section="overview">
-                    <span class="nav-icon">⌂</span>
-                    Visão geral
-                </button>
-
-                <button class="nav-item" data-section="diseases">
-                    <span class="nav-icon">+</span>
-                    Doenças
-                </button>
-
-                <button class="nav-item" data-section="vaccines">
-                    <span class="nav-icon">□</span>
-                    Vacinação
-                </button>
-
-                <button class="nav-item" data-section="alerts">
-                    <span class="nav-icon">!</span>
-                    Alertas
-                </button>
-
-                <p class="nav-title second">SISTEMA</p>
-
-                <button class="nav-item" data-section="family">
-                    <span class="nav-icon">○</span>
-                    Minha família
-                </button>
-
-                <button class="nav-item" data-section="settings">
-                    <span class="nav-icon">⚙</span>
-                    Configurações
-                </button>
-
-            </nav>
 
             <div class="sidebar-bottom">
 
-                <div class="connection">
-                    <span class="connection-dot"></span>
+                <div class="data-source">
+
+                    <div class="source-icon">
+                        <i class="icon icon-database"></i>
+                    </div>
 
                     <div>
-                        <strong>Sistema online</strong>
-                        <span>Dados atualizados</span>
+                        <strong>Base de dados</strong>
+                        <span>Preparada para integração</span>
                     </div>
+
                 </div>
 
                 <button class="logout-button" id="logoutButton">
+                    <i class="icon icon-log-out"></i>
                     Sair
                 </button>
 
@@ -197,33 +278,58 @@
         </aside>
 
 
-        <!-- CONTENT -->
+        <!-- MAIN CONTENT -->
+
         <section class="content">
 
             <header class="topbar">
 
-                <div class="mobile-brand">
-                    <div class="brand-mark">S</div>
+                <button
+                    class="mobile-menu"
+                    id="mobileMenu"
+                    aria-label="Abrir menu"
+                >
+                    <i class="icon icon-menu"></i>
+                </button>
+
+                <div class="mobile-logo">
+                    <div class="brand-symbol">
+                        <span>S</span>
+                    </div>
                     <strong>Sensus</strong>
                 </div>
 
-                <div class="topbar-right">
+                <div class="topbar-actions">
 
-                    <button class="notification-button" aria-label="Notificações">
-                        <span></span>
-                        ◌
+                    <button
+                        class="topbar-icon"
+                        aria-label="Pesquisar"
+                    >
+                        <i class="icon icon-search"></i>
                     </button>
 
-                    <div class="user">
+                    <button
+                        class="topbar-icon notification-button"
+                        aria-label="Notificações"
+                    >
+                        <i class="icon icon-bell"></i>
+                        <span></span>
+                    </button>
+
+                    <div class="topbar-divider"></div>
+
+                    <div class="user-menu">
 
                         <div class="avatar" id="userAvatar">
                             U
                         </div>
 
-                        <div>
+                        <div class="user-info">
                             <strong id="userName">Usuário</strong>
                             <span id="userEmail">usuario@email.com</span>
                         </div>
+
+                        <i class="icon icon-chevron-down"></i>
 
                     </div>
 
@@ -232,49 +338,62 @@
             </header>
 
 
-            <!-- OVERVIEW -->
-            <section class="dashboard-section active-section" id="overview">
+            <!-- =================================================
+                 OVERVIEW
+            ================================================== -->
 
-                <div class="page-heading">
+            <section
+                class="dashboard-section active-section"
+                id="overview"
+            >
+
+                <div class="page-header">
 
                     <div>
-                        <span class="eyebrow">TERÇA-FEIRA, 11 DE AGOSTO</span>
 
-                        <h1>
-                            Visão geral
-                        </h1>
+                        <div class="eyebrow">
+                            <span></span>
+                            TERÇA-FEIRA · 11 AGO 2026
+                        </div>
+
+                        <h1>Visão geral</h1>
 
                         <p>
-                            Acompanhe os principais indicadores de saúde pública.
+                            Uma leitura rápida dos principais sinais
+                            de saúde pública.
                         </p>
+
                     </div>
 
-                    <button class="date-button">
-                        Últimos 30 dias
-                        <span>⌄</span>
+                    <button class="period-selector">
+                        <i class="icon icon-calendar-days"></i>
+                        <span>Últimos 30 dias</span>
+                        <i class="icon icon-chevron-down"></i>
                     </button>
 
                 </div>
 
 
                 <!-- KPI -->
+
                 <div class="metrics-grid">
 
-                    <article class="metric-card">
+                    <article class="metric-card primary-metric">
 
-                        <div class="metric-header">
+                        <div class="metric-top">
                             <span>Casos monitorados</span>
 
                             <div class="metric-icon">
-                                +
+                                <i class="icon icon-activity"></i>
                             </div>
                         </div>
 
                         <strong>12.486</strong>
 
-                        <div class="metric-footer positive">
-                            <span>↑ 8,4%</span>
-                            <small>vs. período anterior</small>
+                        <div class="metric-bottom positive">
+                            <i class="icon icon-trending-up"></i>
+                            <b>8,4%</b>
+                            <span>vs. período anterior</span>
                         </div>
 
                     </article>
@@ -282,19 +401,20 @@
 
                     <article class="metric-card">
 
-                        <div class="metric-header">
-                            <span>Vacinação</span>
+                        <div class="metric-top">
+                            <span>Cobertura vacinal</span>
 
-                            <div class="metric-icon">
-                                ✓
+                            <div class="metric-icon green">
+                                <i class="icon icon-shield-check"></i>
                             </div>
                         </div>
 
                         <strong>84,7%</strong>
 
-                        <div class="metric-footer positive">
-                            <span>↑ 3,1%</span>
-                            <small>cobertura registrada</small>
+                        <div class="metric-bottom positive">
+                            <i class="icon icon-trending-up"></i>
+                            <b>3,1%</b>
+                            <span>últimos 30 dias</span>
                         </div>
 
                     </article>
@@ -302,19 +422,19 @@
 
                     <article class="metric-card">
 
-                        <div class="metric-header">
+                        <div class="metric-top">
                             <span>Alertas ativos</span>
 
-                            <div class="metric-icon warning">
-                                !
+                            <div class="metric-icon orange">
+                                <i class="icon icon-triangle-alert"></i>
                             </div>
                         </div>
 
                         <strong>07</strong>
 
-                        <div class="metric-footer warning-text">
-                            <span>2 importantes</span>
-                            <small>requerem atenção</small>
+                        <div class="metric-bottom warning">
+                            <b>02 importantes</b>
+                            <span>requerem atenção</span>
                         </div>
 
                     </article>
@@ -322,19 +442,19 @@
 
                     <article class="metric-card">
 
-                        <div class="metric-header">
+                        <div class="metric-top">
                             <span>Municípios</span>
 
-                            <div class="metric-icon">
-                                ◇
+                            <div class="metric-icon purple">
+                                <i class="icon icon-map"></i>
                             </div>
                         </div>
 
                         <strong>853</strong>
 
-                        <div class="metric-footer">
-                            <span>MG</span>
-                            <small>monitorados</small>
+                        <div class="metric-bottom neutral">
+                            <b>MG</b>
+                            <span>monitorados</span>
                         </div>
 
                     </article>
@@ -342,30 +462,57 @@
                 </div>
 
 
-                <!-- MAIN GRID -->
-                <div class="dashboard-grid">
+                <!-- ANALYTICS -->
 
-                    <article class="panel chart-panel">
+                <div class="analytics-grid">
 
-                        <div class="panel-heading">
+                    <article class="panel incidence-panel">
+
+                        <div class="panel-header">
 
                             <div>
-                                <span class="panel-label">INCIDÊNCIA</span>
-                                <h2>Casos registrados</h2>
+                                <span class="panel-label">
+                                    INCIDÊNCIA
+                                </span>
+
+                                <h2>
+                                    Evolução dos casos
+                                </h2>
                             </div>
 
-                            <button class="more-button">•••</button>
+                            <button class="panel-action">
+                                <i class="icon icon-more-horizontal"></i>
+                            </button>
 
                         </div>
 
-                        <div class="chart-info">
-                            <strong>2.843</strong>
-                            <span>casos nesta semana</span>
+                        <div class="chart-summary">
+
+                            <div>
+                                <strong>2.843</strong>
+                                <span>casos registrados</span>
+                            </div>
+
+                            <div class="chart-period positive">
+                                <i class="icon icon-trending-up"></i>
+                                8,4%
+                            </div>
+
                         </div>
 
                         <div class="chart">
 
-                            <div class="chart-y">
+                            <div class="chart-grid">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+                            <div class="chart-values">
                                 <span>4k</span>
                                 <span>3k</span>
                                 <span>2k</span>
@@ -373,75 +520,72 @@
                                 <span>0</span>
                             </div>
 
-                            <div class="chart-area">
+                            <svg
+                                viewBox="0 0 900 300"
+                                preserveAspectRatio="none"
+                                class="line-chart"
+                            >
 
-                                <div class="grid-line"></div>
-                                <div class="grid-line"></div>
-                                <div class="grid-line"></div>
-                                <div class="grid-line"></div>
-                                <div class="grid-line"></div>
+                                <defs>
 
-                                <svg
-                                    class="chart-line"
-                                    viewBox="0 0 700 220"
-                                    preserveAspectRatio="none"
-                                >
-                                    <defs>
-                                        <linearGradient
-                                            id="chartFill"
-                                            x1="0"
-                                            y1="0"
-                                            x2="0"
-                                            y2="1"
-                                        >
-                                            <stop
-                                                offset="0%"
-                                                stop-opacity=".16"
-                                            />
-                                            <stop
-                                                offset="100%"
-                                                stop-opacity="0"
-                                            />
-                                        </linearGradient>
-                                    </defs>
+                                    <linearGradient
+                                        id="areaGradient"
+                                        x1="0"
+                                        y1="0"
+                                        x2="0"
+                                        y2="1"
+                                    >
 
-                                    <path
-                                        class="chart-fill"
-                                        d="M0,165
-                                        C50,150 70,155 110,135
-                                        C150,115 175,145 215,120
-                                        C255,95 280,112 320,92
-                                        C360,72 385,100 425,78
-                                        C465,56 490,85 530,66
-                                        C570,47 600,65 635,42
-                                        C660,28 680,38 700,22
-                                        L700,220 L0,220 Z"
-                                    />
+                                        <stop
+                                            offset="0%"
+                                            stop-opacity=".18"
+                                        />
 
-                                    <path
-                                        class="line"
-                                        d="M0,165
-                                        C50,150 70,155 110,135
-                                        C150,115 175,145 215,120
-                                        C255,95 280,112 320,92
-                                        C360,72 385,100 425,78
-                                        C465,56 490,85 530,66
-                                        C570,47 600,65 635,42
-                                        C660,28 680,38 700,22"
-                                    />
+                                        <stop
+                                            offset="100%"
+                                            stop-opacity="0"
+                                        />
 
-                                </svg>
+                                    </linearGradient>
 
-                                <div class="chart-x">
-                                    <span>12 jul</span>
-                                    <span>17 jul</span>
-                                    <span>22 jul</span>
-                                    <span>27 jul</span>
-                                    <span>01 ago</span>
-                                    <span>06 ago</span>
-                                    <span>11 ago</span>
-                                </div>
+                                </defs>
 
+                                <path
+                                    class="chart-area-fill"
+                                    d="M0 245
+                                    C80 230 105 238 155 210
+                                    C205 181 230 218 280 188
+                                    C330 157 360 177 410 148
+                                    C460 118 495 150 545 119
+                                    C595 89 625 117 680 88
+                                    C735 58 770 81 820 54
+                                    C850 38 875 45 900 27
+                                    L900 300
+                                    L0 300 Z"
+                                />
+
+                                <path
+                                    class="chart-line-path"
+                                    d="M0 245
+                                    C80 230 105 238 155 210
+                                    C205 181 230 218 280 188
+                                    C330 157 360 177 410 148
+                                    C460 118 495 150 545 119
+                                    C595 89 625 117 680 88
+                                    C735 58 770 81 820 54
+                                    C850 38 875 45 900 27"
+                                />
+
+                            </svg>
+
+                            <div class="chart-labels">
+                                <span>12 jul</span>
+                                <span>17 jul</span>
+                                <span>22 jul</span>
+                                <span>27 jul</span>
+                                <span>01 ago</span>
+                                <span>06 ago</span>
+                                <span>11 ago</span>
                             </div>
 
                         </div>
@@ -449,81 +593,89 @@
                     </article>
 
 
+                    <!-- ALERTS -->
+
                     <article class="panel alerts-panel">
 
-                        <div class="panel-heading">
+                        <div class="panel-header">
 
                             <div>
-                                <span class="panel-label">ATENÇÃO</span>
+                                <span class="panel-label">
+                                    ATENÇÃO
+                                </span>
+
                                 <h2>Alertas recentes</h2>
                             </div>
 
-                            <button class="text-button">
+                            <button
+                                class="text-action"
+                                data-goto="alerts"
+                            >
                                 Ver todos
+                                <i class="icon icon-arrow-up-right"></i>
                             </button>
 
                         </div>
 
-
                         <div class="alert-list">
 
-                            <div class="alert-item critical">
+                            <div class="alert-row high">
 
-                                <div class="alert-status"></div>
+                                <div class="alert-symbol">
+                                    <i class="icon icon-triangle-alert"></i>
+                                </div>
 
-                                <div>
+                                <div class="alert-content">
                                     <strong>Aumento de casos</strong>
-
                                     <p>
                                         Crescimento acima do esperado.
                                     </p>
-
                                     <small>há 18 minutos</small>
                                 </div>
 
-                                <span class="alert-tag">
+                                <span class="alert-level">
                                     Alta
                                 </span>
 
                             </div>
 
 
-                            <div class="alert-item">
+                            <div class="alert-row medium">
 
-                                <div class="alert-status"></div>
+                                <div class="alert-symbol">
+                                    <i class="icon icon-syringe"></i>
+                                </div>
 
-                                <div>
+                                <div class="alert-content">
                                     <strong>Cobertura vacinal</strong>
-
                                     <p>
                                         Região abaixo da meta.
                                     </p>
-
                                     <small>há 2 horas</small>
                                 </div>
 
-                                <span class="alert-tag neutral">
+                                <span class="alert-level">
                                     Atenção
                                 </span>
 
                             </div>
 
 
-                            <div class="alert-item">
+                            <div class="alert-row info">
 
-                                <div class="alert-status"></div>
+                                <div class="alert-symbol">
+                                    <i class="icon icon-database"></i>
+                                </div>
 
-                                <div>
+                                <div class="alert-content">
                                     <strong>Dados atualizados</strong>
-
                                     <p>
                                         Nova atualização disponível.
                                     </p>
-
                                     <small>há 4 horas</small>
                                 </div>
 
-                                <span class="alert-tag neutral">
+                                <span class="alert-level">
                                     Info
                                 </span>
 
@@ -537,79 +689,108 @@
 
 
                 <!-- BOTTOM -->
+
                 <div class="bottom-grid">
 
-                    <article class="panel disease-panel">
+                    <article class="panel diseases-panel">
 
-                        <div class="panel-heading">
+                        <div class="panel-header">
 
                             <div>
-                                <span class="panel-label">MONITORAMENTO</span>
-                                <h2>Principais doenças</h2>
+                                <span class="panel-label">
+                                    MONITORAMENTO
+                                </span>
+
+                                <h2>Principais indicadores</h2>
                             </div>
 
-                            <button class="text-button">
+                            <button
+                                class="text-action"
+                                data-goto="diseases"
+                            >
                                 Explorar
+                                <i class="icon icon-arrow-up-right"></i>
                             </button>
 
                         </div>
 
+                        <div class="disease-table">
 
-                        <div class="disease-list">
+                            <div class="disease-head">
+                                <span>CONDIÇÃO</span>
+                                <span>ÍNDICE</span>
+                                <span>STATUS</span>
+                            </div>
 
                             <div class="disease-row">
+
                                 <div class="disease-name">
-                                    <span class="disease-number">01</span>
+                                    <span class="rank">01</span>
                                     <strong>Dengue</strong>
                                 </div>
 
-                                <div class="disease-bar">
-                                    <span style="width: 82%"></span>
+                                <div class="disease-progress">
+                                    <span style="width:82%"></span>
                                 </div>
 
-                                <strong>82%</strong>
+                                <div class="disease-status high">
+                                    Alto
+                                </div>
+
                             </div>
 
 
                             <div class="disease-row">
+
                                 <div class="disease-name">
-                                    <span class="disease-number">02</span>
+                                    <span class="rank">02</span>
                                     <strong>Influenza</strong>
                                 </div>
 
-                                <div class="disease-bar">
-                                    <span style="width: 61%"></span>
+                                <div class="disease-progress">
+                                    <span style="width:61%"></span>
                                 </div>
 
-                                <strong>61%</strong>
+                                <div class="disease-status medium">
+                                    Atenção
+                                </div>
+
                             </div>
 
 
                             <div class="disease-row">
+
                                 <div class="disease-name">
-                                    <span class="disease-number">03</span>
+                                    <span class="rank">03</span>
                                     <strong>COVID-19</strong>
                                 </div>
 
-                                <div class="disease-bar">
-                                    <span style="width: 43%"></span>
+                                <div class="disease-progress">
+                                    <span style="width:43%"></span>
                                 </div>
 
-                                <strong>43%</strong>
+                                <div class="disease-status normal">
+                                    Estável
+                                </div>
+
                             </div>
 
 
                             <div class="disease-row">
+
                                 <div class="disease-name">
-                                    <span class="disease-number">04</span>
+                                    <span class="rank">04</span>
                                     <strong>Chikungunya</strong>
                                 </div>
 
-                                <div class="disease-bar">
-                                    <span style="width: 29%"></span>
+                                <div class="disease-progress">
+                                    <span style="width:29%"></span>
                                 </div>
 
-                                <strong>29%</strong>
+                                <div class="disease-status normal">
+                                    Estável
+                                </div>
+
                             </div>
 
                         </div>
@@ -617,35 +798,48 @@
                     </article>
 
 
-                    <article class="panel update-panel">
+                    <article class="panel source-panel">
 
-                        <div class="panel-heading">
+                        <div class="panel-header">
 
                             <div>
-                                <span class="panel-label">FONTE DOS DADOS</span>
-                                <h2>Atualização</h2>
+                                <span class="panel-label">
+                                    FONTE
+                                </span>
+
+                                <h2>Dados da plataforma</h2>
                             </div>
 
                         </div>
 
-                        <div class="update-content">
+                        <div class="source-content">
 
-                            <div class="update-icon">
-                                ✓
+                            <div class="source-visual">
+                                <div class="source-pulse"></div>
+                                <i class="icon icon-database"></i>
                             </div>
 
                             <strong>
-                                Dados sincronizados
+                                Pronto para integração
                             </strong>
 
                             <p>
-                                A plataforma está utilizando a
-                                última atualização disponível.
+                                O Sensus foi estruturado para receber
+                                dados públicos de saúde e processá-los
+                                em indicadores.
                             </p>
 
-                            <span class="update-time">
-                                Atualizado hoje às 18:42
-                            </span>
+                            <div class="source-meta">
+                                <span>
+                                    <i class="icon icon-clock-3"></i>
+                                    Atualização automática
+                                </span>
+
+                                <span>
+                                    <i class="icon icon-shield-check"></i>
+                                    Dados públicos
+                                </span>
+                            </div>
 
                         </div>
 
@@ -656,133 +850,422 @@
             </section>
 
 
-            <!-- DOENÇAS -->
+            <!-- =================================================
+                 DOENÇAS
+            ================================================== -->
+
             <section class="dashboard-section" id="diseases">
 
-                <div class="page-heading">
+                <div class="page-header">
+
                     <div>
-                        <span class="eyebrow">MONITORAMENTO</span>
+                        <div class="eyebrow">
+                            <span></span>
+                            MONITORAMENTO EPIDEMIOLÓGICO
+                        </div>
+
                         <h1>Doenças</h1>
-                        <p>Acompanhe os principais indicadores epidemiológicos.</p>
+
+                        <p>
+                            Acompanhe tendências e indicadores
+                            epidemiológicos.
+                        </p>
                     </div>
+
+                    <button class="period-selector">
+                        <i class="icon icon-calendar-days"></i>
+                        Últimos 30 dias
+                    </button>
+
                 </div>
 
-                <div class="empty-section">
-                    <div class="empty-icon">+</div>
-                    <h2>Monitoramento epidemiológico</h2>
-                    <p>
-                        Esta área será conectada aos dados públicos
-                        para apresentar incidência, distribuição e evolução.
-                    </p>
+                <div class="feature-grid">
+
+                    <article class="feature-card feature-large">
+
+                        <div class="feature-card-icon">
+                            <i class="icon icon-activity"></i>
+                        </div>
+
+                        <span class="panel-label">
+                            INCIDÊNCIA
+                        </span>
+
+                        <h2>
+                            Monitoramento epidemiológico
+                        </h2>
+
+                        <p>
+                            Área preparada para apresentar
+                            incidência, distribuição geográfica,
+                            evolução temporal e comparação
+                            entre períodos.
+                        </p>
+
+                        <div class="coming-soon">
+                            <span></span>
+                            Integração de dados em desenvolvimento
+                        </div>
+
+                    </article>
+
+                    <article class="feature-card">
+
+                        <div class="feature-card-icon green">
+                            <i class="icon icon-map"></i>
+                        </div>
+
+                        <span class="panel-label">
+                            DISTRIBUIÇÃO
+                        </span>
+
+                        <h3>Mapa epidemiológico</h3>
+
+                        <p>
+                            Visualização dos indicadores por
+                            município e região.
+                        </p>
+
+                    </article>
+
+                    <article class="feature-card">
+
+                        <div class="feature-card-icon orange">
+                            <i class="icon icon-trending-up"></i>
+                        </div>
+
+                        <span class="panel-label">
+                            TENDÊNCIA
+                        </span>
+
+                        <h3>Evolução temporal</h3>
+
+                        <p>
+                            Identificação de crescimento,
+                            estabilidade ou redução.
+                        </p>
+
+                    </article>
+
                 </div>
 
             </section>
 
 
-            <!-- VACINAS -->
+            <!-- =================================================
+                 VACINAÇÃO
+            ================================================== -->
+
             <section class="dashboard-section" id="vaccines">
 
-                <div class="page-heading">
+                <div class="page-header">
+
                     <div>
-                        <span class="eyebrow">PREVENÇÃO</span>
+                        <div class="eyebrow">
+                            <span></span>
+                            PREVENÇÃO
+                        </div>
+
                         <h1>Vacinação</h1>
-                        <p>Consulte indicadores de cobertura vacinal.</p>
+
+                        <p>
+                            Acompanhe cobertura vacinal e prevenção.
+                        </p>
                     </div>
+
                 </div>
 
-                <div class="empty-section">
-                    <div class="empty-icon">✓</div>
-                    <h2>Calendário de vacinação</h2>
-                    <p>
-                        Aqui ficarão os dados de cobertura e o
-                        acompanhamento das vacinas da sua família.
-                    </p>
+                <div class="vaccine-overview">
+
+                    <article class="vaccine-hero">
+
+                        <div>
+                            <span class="panel-label">
+                                COBERTURA GERAL
+                            </span>
+
+                            <h2>84,7%</h2>
+
+                            <p>
+                                Indicador demonstrativo de cobertura
+                                vacinal.
+                            </p>
+                        </div>
+
+                        <div class="ring">
+                            <div>
+                                <strong>85</strong>
+                                <span>%</span>
+                            </div>
+                        </div>
+
+                    </article>
+
+                    <article class="feature-card">
+
+                        <div class="feature-card-icon green">
+                            <i class="icon icon-syringe"></i>
+                        </div>
+
+                        <span class="panel-label">
+                            CALENDÁRIO
+                        </span>
+
+                        <h3>Vacinas da família</h3>
+
+                        <p>
+                            Cadastre familiares para acompanhar
+                            o calendário de vacinação.
+                        </p>
+
+                        <button
+                            class="outline-button"
+                            data-goto="family"
+                        >
+                            Acessar calendário
+                            <i class="icon icon-arrow-right"></i>
+                        </button>
+
+                    </article>
+
                 </div>
 
             </section>
 
 
-            <!-- ALERTAS -->
+            <!-- =================================================
+                 ALERTAS
+            ================================================== -->
+
             <section class="dashboard-section" id="alerts">
 
-                <div class="page-heading">
+                <div class="page-header">
+
                     <div>
-                        <span class="eyebrow">INTELIGÊNCIA</span>
-                        <h1>Alertas</h1>
-                        <p>Eventos que precisam de atenção.</p>
+                        <div class="eyebrow">
+                            <span></span>
+                            INTELIGÊNCIA
+                        </div>
+
+                        <h1>Central de alertas</h1>
+
+                        <p>
+                            Eventos que merecem atenção.
+                        </p>
                     </div>
+
+                    <div class="alert-summary">
+                        <strong>07</strong>
+                        <span>alertas ativos</span>
+                    </div>
+
                 </div>
 
-                <div class="empty-section">
-                    <div class="empty-icon">!</div>
-                    <h2>Central de alertas</h2>
-                    <p>
-                        Os alertas epidemiológicos serão exibidos aqui
-                        conforme os dados forem processados.
-                    </p>
+                <div class="full-alert-list">
+
+                    <div class="full-alert high">
+                        <div class="full-alert-icon">
+                            <i class="icon icon-triangle-alert"></i>
+                        </div>
+
+                        <div>
+                            <span>ALTA PRIORIDADE</span>
+                            <h3>Aumento de casos</h3>
+                            <p>
+                                Crescimento acima do esperado
+                                no indicador monitorado.
+                            </p>
+                        </div>
+
+                        <time>18 min</time>
+                    </div>
+
+                    <div class="full-alert medium">
+                        <div class="full-alert-icon">
+                            <i class="icon icon-syringe"></i>
+                        </div>
+
+                        <div>
+                            <span>ATENÇÃO</span>
+                            <h3>Cobertura vacinal</h3>
+                            <p>
+                                Região abaixo da meta estabelecida.
+                            </p>
+                        </div>
+
+                        <time>2 h</time>
+                    </div>
+
+                    <div class="full-alert info">
+                        <div class="full-alert-icon">
+                            <i class="icon icon-database"></i>
+                        </div>
+
+                        <div>
+                            <span>INFORMAÇÃO</span>
+                            <h3>Dados atualizados</h3>
+                            <p>
+                                Nova atualização disponível
+                                na base monitorada.
+                            </p>
+                        </div>
+
+                        <time>4 h</time>
+                    </div>
+
                 </div>
 
             </section>
 
 
-            <!-- FAMÍLIA -->
+            <!-- =================================================
+                 FAMILY
+            ================================================== -->
+
             <section class="dashboard-section" id="family">
 
-                <div class="page-heading">
+                <div class="page-header">
+
                     <div>
-                        <span class="eyebrow">CUIDADO</span>
+                        <div class="eyebrow">
+                            <span></span>
+                            CUIDADO
+                        </div>
+
                         <h1>Minha família</h1>
-                        <p>Acompanhe o calendário de vacinação.</p>
+
+                        <p>
+                            Acompanhe o calendário de vacinação
+                            das pessoas cadastradas.
+                        </p>
                     </div>
 
-                    <button class="primary-small">
-                        + Adicionar pessoa
+                    <button
+                        class="primary-small"
+                        id="addFamilyButton"
+                    >
+                        <i class="icon icon-plus"></i>
+                        Adicionar pessoa
                     </button>
+
                 </div>
 
-                <div class="empty-section">
-                    <div class="empty-icon">○</div>
-                    <h2>Nenhum familiar cadastrado</h2>
+                <div class="family-empty">
+
+                    <div class="family-empty-icon">
+                        <i class="icon icon-users"></i>
+                    </div>
+
+                    <span class="panel-label">
+                        ACOMPANHAMENTO FAMILIAR
+                    </span>
+
+                    <h2>Nenhuma pessoa cadastrada</h2>
+
                     <p>
-                        Adicione pessoas para acompanhar suas vacinas
-                        e receber lembretes.
+                        Adicione familiares para organizar o
+                        acompanhamento das vacinas e receber
+                        lembretes.
                     </p>
+
+                    <button
+                        class="outline-button"
+                        id="addFamilyButtonEmpty"
+                    >
+                        <i class="icon icon-plus"></i>
+                        Adicionar primeira pessoa
+                    </button>
+
                 </div>
 
             </section>
 
 
-            <!-- CONFIG -->
+            <!-- =================================================
+                 SETTINGS
+            ================================================== -->
+
             <section class="dashboard-section" id="settings">
 
-                <div class="page-heading">
+                <div class="page-header">
+
                     <div>
-                        <span class="eyebrow">SISTEMA</span>
+                        <div class="eyebrow">
+                            <span></span>
+                            SISTEMA
+                        </div>
+
                         <h1>Configurações</h1>
-                        <p>Gerencie sua conta e preferências.</p>
+
+                        <p>
+                            Gerencie sua conta e preferências.
+                        </p>
                     </div>
+
                 </div>
 
-                <div class="settings-card">
+                <div class="settings-layout">
 
-                    <div class="settings-row">
-                        <div>
-                            <strong>E-mail da conta</strong>
-                            <span id="settingsEmail">usuario@email.com</span>
+                    <article class="settings-card">
+
+                        <div class="settings-heading">
+                            <div class="settings-heading-icon">
+                                <i class="icon icon-user"></i>
+                            </div>
+
+                            <div>
+                                <h2>Conta</h2>
+                                <p>Informações de acesso</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="settings-row">
-                        <div>
-                            <strong>Notificações</strong>
-                            <span>Alertas importantes por e-mail</span>
+                        <div class="settings-row">
+                            <div>
+                                <strong>E-mail</strong>
+                                <span id="settingsEmail">
+                                    usuario@email.com
+                                </span>
+                            </div>
+
+                            <i class="icon icon-mail"></i>
                         </div>
 
-                        <label class="toggle">
-                            <input type="checkbox" checked>
-                            <span></span>
-                        </label>
-                    </div>
+                    </article>
+
+
+                    <article class="settings-card">
+
+                        <div class="settings-heading">
+                            <div class="settings-heading-icon">
+                                <i class="icon icon-bell"></i>
+                            </div>
+
+                            <div>
+                                <h2>Notificações</h2>
+                                <p>Controle seus avisos</p>
+                            </div>
+                        </div>
+
+                        <div class="settings-row">
+
+                            <div>
+                                <strong>Alertas por e-mail</strong>
+                                <span>
+                                    Receber notificações importantes
+                                </span>
+                            </div>
+
+                            <label class="toggle">
+                                <input
+                                    type="checkbox"
+                                    checked
+                                >
+                                <span></span>
+                            </label>
+
+                        </div>
+
+                    </article>
 
                 </div>
 
@@ -792,7 +1275,104 @@
 
     </main>
 
-    <script src="script.js"></script>
+
+    <!-- MOBILE NAV -->
+
+    <div class="mobile-nav" id="mobileNav">
+
+        <button class="mobile-nav-item active" data-section="overview">
+            <i class="icon icon-layout-dashboard"></i>
+            <span>Início</span>
+        </button>
+
+        <button class="mobile-nav-item" data-section="diseases">
+            <i class="icon icon-activity"></i>
+            <span>Doenças</span>
+        </button>
+
+        <button class="mobile-nav-item" data-section="vaccines">
+            <i class="icon icon-syringe"></i>
+            <span>Vacinas</span>
+        </button>
+
+        <button class="mobile-nav-item" data-section="alerts">
+            <i class="icon icon-bell-ring"></i>
+            <span>Alertas</span>
+        </button>
+
+        <button class="mobile-nav-item" data-section="family">
+            <i class="icon icon-users"></i>
+            <span>Família</span>
+        </button>
+
+    </div>
+
+
+    <!-- FAMILY MODAL -->
+
+    <div class="modal-overlay" id="familyModal">
+
+        <div class="modal">
+
+            <button
+                class="modal-close"
+                id="closeFamilyModal"
+                aria-label="Fechar"
+            >
+                <i class="icon icon-x"></i>
+            </button>
+
+            <div class="modal-icon">
+                <i class="icon icon-user-plus"></i>
+            </div>
+
+            <span class="panel-label">
+                NOVO CADASTRO
+            </span>
+
+            <h2>Adicionar pessoa</h2>
+
+            <p>
+                Cadastre um familiar para acompanhar
+                seu calendário de vacinação.
+            </p>
+
+            <form id="familyForm">
+
+                <label for="familyName">
+                    Nome
+                </label>
+
+                <input
+                    id="familyName"
+                    type="text"
+                    placeholder="Nome da pessoa"
+                    required
+                >
+
+                <label for="familyBirth">
+                    Data de nascimento
+                </label>
+
+                <input
+                    id="familyBirth"
+                    type="date"
+                    required
+                >
+
+                <button class="login-button" type="submit">
+                    <span>Adicionar</span>
+                    <i class="icon icon-arrow-right"></i>
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
 
 </body>
 </html>
