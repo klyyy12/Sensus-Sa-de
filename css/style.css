@@ -1,1788 +1,1384 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+:root {
+    --bg: #f5f7f9;
+    --surface: #ffffff;
+    --surface-soft: #f8fafb;
+
+    --ink: #101820;
+    --muted: #77828d;
+    --muted-light: #a5afb7;
+
+    --primary: #123c69;
+    --primary-dark: #0c2d50;
+
+    --border: #e7ebee;
+
+    --success: #287d62;
+    --warning: #b77824;
+    --danger: #b64c4c;
+
+    --radius: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-screen {
+    min-height: 100vh;
+    padding: 42px 6vw 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(18, 60, 105, .07),
+            transparent 35%
+        ),
+        #f7f9fa;
+}
+
+.login-brand,
+.sidebar-brand,
+.mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: var(--primary);
+    color: white;
+
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    font-size: 19px;
+}
+
+.login-brand strong,
+.sidebar-brand strong {
+    display: block;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+}
 
-    <title>Sensus — Saúde Pública Inteligente</title>
+.login-brand span,
+.sidebar-brand span {
+    display: block;
+
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 2px;
+}
 
-    <meta
-        name="description"
-        content="Sensus — plataforma inteligente de monitoramento da saúde pública."
-    >
+.login-content {
+    width: min(1180px, 100%);
+    margin: auto;
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    align-items: center;
+    gap: 10vw;
+}
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+.login-copy {
+    max-width: 600px;
+}
 
-    <link rel="stylesheet" href="css/style.css">
-</head>
+.eyebrow,
+.small-label,
+.panel-label {
+    color: var(--primary);
 
-<body>
+    font-size: 10px;
+    font-weight: 800;
 
-<!-- ==================================================
-     LOGIN
-================================================== -->
+    letter-spacing: .16em;
+}
 
-<div class="login-page" id="loginPage">
+.login-copy h1 {
+    margin-top: 18px;
 
-    <div class="login-visual">
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(42px, 5vw, 72px);
+    line-height: .99;
+    letter-spacing: -3px;
+}
 
-        <div class="login-visual-top">
-            <div class="logo">
-                <span class="logo-mark">S</span>
-                <span class="logo-name">sensus</span>
-            </div>
+.login-copy h1 span {
+    color: var(--primary);
+}
 
-            <span class="visual-label">SAÚDE PÚBLICA</span>
-        </div>
+.login-copy > p {
+    max-width: 500px;
 
-        <div class="visual-content">
+    margin-top: 28px;
 
-            <div class="visual-tag">
-                <span></span>
-                INTELIGÊNCIA EM SAÚDE
-            </div>
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+}
 
-            <h1>
-                Dados que
-                <em>ajudam a cuidar.</em>
-            </h1>
+.login-features {
+    display: flex;
+    gap: 42px;
 
-            <p>
-                Transformamos dados de saúde pública em
-                informações claras para apoiar decisões melhores.
-            </p>
+    margin-top: 48px;
+}
 
-        </div>
+.login-features div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
 
-        <div class="visual-footer">
-            <span>Monitoramento inteligente</span>
-            <span>•</span>
-            <span>Dados públicos</span>
-            <span>•</span>
-            <span>Informação</span>
-        </div>
+.feature-number {
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 800;
+}
 
-        <div class="visual-orbit orbit-one"></div>
-        <div class="visual-orbit orbit-two"></div>
+.login-features p {
+    font-size: 13px;
+    font-weight: 600;
+}
 
-    </div>
+.login-card {
+    width: 100%;
+    max-width: 430px;
 
+    padding: 42px;
 
-    <div class="login-panel">
+    background: rgba(255, 255, 255, .9);
 
-        <div class="login-mobile-logo">
+    border: 1px solid var(--border);
+    border-radius: 24px;
 
-            <div class="logo">
-                <span class="logo-mark">S</span>
-                <span class="logo-name">sensus</span>
-            </div>
+    box-shadow:
+        0 20px 60px rgba(20, 34, 48, .07);
+}
 
-        </div>
+.card-top h2 {
+    margin-top: 12px;
 
-        <div class="login-form-container">
+    font-family: "Manrope", sans-serif;
+    font-size: 32px;
+    letter-spacing: -1px;
+}
 
-            <span class="form-overline">
-                ACESSO À PLATAFORMA
-            </span>
+.card-top p {
+    margin-top: 8px;
 
-            <h2>
-                Bem-vindo de volta.
-            </h2>
+    color: var(--muted);
+    font-size: 13px;
+}
 
-            <p class="form-intro">
-                Entre com seu e-mail para acessar o Sensus.
-            </p>
-
+.login-card form {
+    margin-top: 34px;
+}
 
-            <form id="loginForm">
-
-                <div class="field">
-
-                    <label for="email">
-                        E-mail
-                    </label>
-
-                    <div class="field-input">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M4 6.5h16v11H4z"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-
-                            <path
-                                d="m4.5 7 7.5 6 7.5-6"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-                        </svg>
-
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="seu@email.com"
-                            autocomplete="email"
-                            required
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <div class="field">
-
-                    <div class="field-label-row">
-
-                        <label for="password">
-                            Senha
-                        </label>
-
-                        <button
-                            type="button"
-                            id="forgotPassword"
-                            class="link-button"
-                        >
-                            Esqueci minha senha
-                        </button>
-
-                    </div>
-
-                    <div class="field-input">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <rect
-                                x="5"
-                                y="10"
-                                width="14"
-                                height="10"
-                                rx="2"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-
-                            <path
-                                d="M8 10V7.5a4 4 0 0 1 8 0V10"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-                        </svg>
-
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Sua senha"
-                            autocomplete="current-password"
-                            required
-                        >
-
-                        <button
-                            type="button"
-                            id="passwordToggle"
-                            class="input-action"
-                            aria-label="Mostrar senha"
-                        >
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M3.5 12s3-5 8.5-5 8.5 5 8.5 5-3 5-8.5 5-8.5-5-8.5-5Z"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.5"
-                                />
+.login-card label {
+    display: block;
 
-                                <circle
-                                    cx="12"
-                                    cy="12"
-                                    r="2"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.5"
-                                />
-                            </svg>
-                        </button>
+    margin-bottom: 9px;
 
-                    </div>
+    font-size: 12px;
+    font-weight: 700;
+}
 
-                </div>
+.input-wrapper {
+    height: 54px;
 
+    display: flex;
+    align-items: center;
 
-                <label class="remember">
+    padding: 0 16px;
 
-                    <input
-                        type="checkbox"
-                        id="rememberMe"
-                    >
+    border: 1px solid var(--border);
+    border-radius: 12px;
 
-                    <span class="custom-checkbox"></span>
+    background: white;
 
-                    <span>
-                        Manter-me conectado
-                    </span>
+    transition: .2s;
+}
 
-                </label>
+.input-wrapper:focus-within {
+    border-color: var(--primary);
 
+    box-shadow: 0 0 0 4px rgba(18, 60, 105, .08);
+}
 
-                <button
-                    type="submit"
-                    class="primary-button login-button"
-                >
-                    <span>Entrar na plataforma</span>
+.input-wrapper svg {
+    width: 18px;
+    margin-right: 12px;
 
-                    <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path
-                            d="M5 12h13M13 6l6 6-6 6"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.7"
-                        />
-                    </svg>
+    fill: none;
+    stroke: var(--muted);
+    stroke-width: 1.5;
+}
 
-                </button>
+.input-wrapper input {
+    width: 100%;
 
-                <p
-                    class="login-message"
-                    id="loginMessage"
-                ></p>
+    border: 0;
+    outline: 0;
 
-            </form>
+    color: var(--ink);
+    background: transparent;
 
-        </div>
+    font-size: 14px;
+}
 
+.input-wrapper input::placeholder {
+    color: #aab2b9;
+}
 
-        <div class="login-panel-footer">
+.primary-button {
+    width: 100%;
+    height: 54px;
 
-            <span>
-                Acesso protegido
-            </span>
+    margin-top: 14px;
 
-            <span class="footer-dot"></span>
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-            <span>
-                Conexão exclusiva por e-mail
-            </span>
+    padding: 0 18px 0 22px;
 
-        </div>
+    border-radius: 12px;
 
-    </div>
+    background: var(--primary);
+    color: white;
 
-</div>
+    font-weight: 700;
 
+    transition: .2s;
+}
 
-<!-- ==================================================
-     APP
-================================================== -->
+.primary-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
 
-<div class="app" id="app" hidden>
+.primary-button span {
+    font-size: 20px;
+}
 
-    <!-- SIDEBAR -->
+.login-note {
+    margin-top: 16px;
 
-    <aside class="sidebar">
+    text-align: center;
 
-        <div>
+    color: var(--muted-light);
+    font-size: 11px;
+}
 
-            <div class="sidebar-brand">
+.login-footer {
+    display: flex;
+    justify-content: space-between;
 
-                <div class="logo">
+    color: var(--muted-light);
+    font-size: 11px;
+}
 
-                    <span class="logo-mark">S</span>
 
-                    <span class="logo-name">
-                        sensus
-                    </span>
+/* =========================
+   APP
+========================= */
 
-                </div>
+.app {
+    min-height: 100vh;
 
-            </div>
+    display: none;
 
+    grid-template-columns: 240px 1fr;
+}
 
-            <div class="sidebar-section">
+.app.visible {
+    display: grid;
+}
 
-                <span class="sidebar-label">
-                    VISÃO GERAL
-                </span>
 
-                <button
-                    class="nav-item active"
-                    data-section="dashboard"
-                >
-                    <span class="nav-number">01</span>
-                    <span>Dashboard</span>
-                </button>
+/* =========================
+   SIDEBAR
+========================= */
 
-            </div>
+.sidebar {
+    min-height: 100vh;
 
+    display: flex;
+    flex-direction: column;
 
-            <div class="sidebar-section">
+    padding: 30px 18px;
 
-                <span class="sidebar-label">
-                    MONITORAMENTO
-                </span>
+    background: #fff;
+    border-right: 1px solid var(--border);
+}
 
-                <button
-                    class="nav-item"
-                    data-section="monitoramento"
-                >
-                    <span class="nav-number">02</span>
-                    <span>Doenças</span>
-                </button>
+.sidebar-brand {
+    padding: 0 10px;
+}
 
-                <button
-                    class="nav-item"
-                    data-section="vacinacao"
-                >
-                    <span class="nav-number">03</span>
-                    <span>Vacinação</span>
-                </button>
+.sidebar nav {
+    margin-top: 48px;
+}
 
-                <button
-                    class="nav-item"
-                    data-section="alertas"
-                >
-                    <span class="nav-number">04</span>
-                    <span>Alertas</span>
+.nav-title {
+    padding: 0 12px;
+    margin-bottom: 10px;
 
-                    <span class="nav-badge">
-                        03
-                    </span>
+    color: #a4adb4;
 
-                </button>
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .15em;
+}
 
-            </div>
+.nav-title.second {
+    margin-top: 32px;
+}
 
+.nav-item {
+    width: 100%;
+    height: 44px;
 
-            <div class="sidebar-section">
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-                <span class="sidebar-label">
-                    INFORMAÇÃO
-                </span>
+    padding: 0 12px;
+    margin-bottom: 3px;
 
-                <button
-                    class="nav-item"
-                    data-section="dados"
-                >
-                    <span class="nav-number">05</span>
-                    <span>Fontes de dados</span>
-                </button>
+    border-radius: 10px;
 
-            </div>
+    color: #7a858e;
+    background: transparent;
 
-        </div>
+    text-align: left;
 
+    font-size: 13px;
+    font-weight: 600;
 
-        <div class="sidebar-bottom">
+    transition: .2s;
+}
 
-            <div class="sidebar-source">
+.nav-item:hover {
+    background: #f5f7f8;
+    color: var(--ink);
+}
 
-                <div class="source-indicator"></div>
+.nav-item.active {
+    background: #eef3f7;
+    color: var(--primary);
+}
 
-                <div>
+.nav-icon {
+    width: 20px;
 
-                    <strong>
-                        Sistema operacional
-                    </strong>
+    text-align: center;
 
-                    <span>
-                        Monitoramento ativo
-                    </span>
+    font-size: 17px;
+}
 
-                </div>
+.sidebar-bottom {
+    margin-top: auto;
+}
 
-            </div>
+.connection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
+    padding: 14px;
 
-            <button
-                class="sidebar-profile"
-                id="sidebarProfile"
-                data-section="perfil"
-            >
+    border-radius: 12px;
+    background: #f7f9fa;
+}
 
-                <span
-                    class="sidebar-avatar"
-                    id="sidebarAvatar"
-                >
-                    US
-                </span>
+.connection-dot {
+    width: 7px;
+    height: 7px;
 
-                <span class="sidebar-profile-info">
+    border-radius: 50%;
 
-                    <strong id="sidebarName">
-                        Usuário
-                    </strong>
+    background: #3e9a78;
+}
 
-                    <small id="sidebarEmail">
-                        usuario@email.com
-                    </small>
+.connection strong {
+    display: block;
+    font-size: 11px;
+}
 
-                </span>
+.connection div span {
+    display: block;
 
-                <span class="profile-arrow">
-                    →
-                </span>
+    margin-top: 3px;
 
-            </button>
+    color: var(--muted);
+    font-size: 9px;
+}
 
-        </div>
+.logout-button {
+    width: 100%;
 
-    </aside>
+    margin-top: 10px;
 
+    padding: 10px;
 
-    <!-- MAIN -->
+    background: transparent;
 
-    <main class="main">
+    color: var(--muted);
 
-        <header class="topbar">
+    font-size: 11px;
+}
 
-            <button
-                class="mobile-menu"
-                id="mobileMenu"
-                aria-label="Abrir menu"
-            >
-                <span></span>
-                <span></span>
-            </button>
 
+/* =========================
+   CONTENT
+========================= */
 
-            <div class="breadcrumb">
+.content {
+    min-width: 0;
 
-                <span>Sensus</span>
+    padding: 0 42px 50px;
+}
 
-                <span>/</span>
+.topbar {
+    height: 82px;
 
-                <strong id="breadcrumbCurrent">
-                    Dashboard
-                </strong>
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
-            </div>
+    border-bottom: 1px solid var(--border);
+}
 
+.mobile-brand {
+    display: none;
+}
 
-            <div class="topbar-actions">
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
 
-                <button
-                    class="mail-button"
-                    id="emailNotifications"
-                    aria-label="Notificações"
-                >
+.notification-button {
+    position: relative;
 
-                    <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path
-                            d="M4 6.5h16v11H4z"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                        />
+    width: 38px;
+    height: 38px;
 
-                        <path
-                            d="m4.5 7 7.5 6 7.5-6"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                        />
-                    </svg>
+    border-radius: 50%;
 
-                    <span></span>
+    background: transparent;
 
-                </button>
+    color: var(--muted);
 
+    font-size: 22px;
+}
 
-                <div class="topbar-divider"></div>
+.notification-button span {
+    position: absolute;
 
+    width: 6px;
+    height: 6px;
 
-                <button
-                    class="topbar-user"
-                    data-section="perfil"
-                >
+    top: 8px;
+    right: 8px;
 
-                    <span
-                        class="topbar-avatar"
-                        id="topbarAvatar"
-                    >
-                        US
-                    </span>
+    border-radius: 50%;
 
-                    <span
-                        class="topbar-user-name"
-                        id="topbarName"
-                    >
-                        Usuário
-                    </span>
+    background: var(--danger);
 
-                </button>
+    border: 2px solid white;
+}
 
-            </div>
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-        </header>
+.avatar {
+    width: 34px;
+    height: 34px;
 
+    display: grid;
+    place-items: center;
 
-        <div class="page-container">
+    border-radius: 50%;
 
+    background: #e8eef3;
+    color: var(--primary);
 
-            <!-- ==================================================
-                 DASHBOARD
-            ================================================== -->
+    font-size: 12px;
+    font-weight: 800;
+}
 
-            <section
-                class="page-section active-section"
-                id="dashboard"
-            >
+.user strong {
+    display: block;
 
-                <div class="hero-heading">
+    font-size: 11px;
+}
 
-                    <div>
+.user span {
+    display: block;
 
-                        <span class="section-kicker">
-                            VISÃO GERAL · 11 AGO 2026
-                        </span>
+    margin-top: 2px;
 
-                        <h1>
-                            Saúde pública,
-                            <em>em perspectiva.</em>
-                        </h1>
+    color: var(--muted);
+    font-size: 9px;
+}
 
-                        <p>
-                            Uma visão clara dos principais indicadores
-                            epidemiológicos e de imunização.
-                        </p>
 
-                    </div>
+/* =========================
+   PAGE HEADING
+========================= */
 
+.dashboard-section {
+    display: none;
 
-                    <div class="data-state">
+    padding-top: 42px;
+}
 
-                        <span></span>
+.dashboard-section.active-section {
+    display: block;
+}
 
-                        Dados demonstrativos
+.page-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
 
-                    </div>
+    margin-bottom: 30px;
+}
 
-                </div>
+.page-heading h1 {
+    margin-top: 9px;
 
+    font-family: "Manrope", sans-serif;
+    font-size: 35px;
+    letter-spacing: -1.5px;
+}
 
-                <div class="hero-metrics">
+.page-heading p {
+    margin-top: 7px;
 
-                    <div class="hero-metric primary-metric">
+    color: var(--muted);
+    font-size: 13px;
+}
 
-                        <div class="metric-caption">
-                            CASOS MONITORADOS
-                        </div>
+.date-button {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 
-                        <div class="metric-number">
-                            12.486
-                        </div>
+    padding: 11px 14px;
 
-                        <div class="metric-bottom">
+    border: 1px solid var(--border);
+    border-radius: 9px;
 
-                            <span class="trend up">
-                                ↑ 8,4%
-                            </span>
+    background: white;
 
-                            <span>
-                                em relação ao período anterior
-                            </span>
+    color: #69747d;
 
-                        </div>
+    font-size: 11px;
+}
 
-                    </div>
 
+/* =========================
+   METRICS
+========================= */
 
-                    <div class="hero-metric">
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
 
-                        <div class="metric-caption">
-                            COBERTURA VACINAL
-                        </div>
+.metric-card {
+    padding: 22px;
 
-                        <div class="metric-number">
-                            87,6<span>%</span>
-                        </div>
+    background: white;
 
-                        <div class="metric-bottom">
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
 
-                            <span class="trend up">
-                                ↑ 2,1%
-                            </span>
+.metric-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-                            <span>
-                                evolução
-                            </span>
+    color: var(--muted);
 
-                        </div>
+    font-size: 11px;
+    font-weight: 600;
+}
 
-                    </div>
+.metric-icon {
+    width: 29px;
+    height: 29px;
 
+    display: grid;
+    place-items: center;
 
-                    <div class="hero-metric">
+    border-radius: 8px;
 
-                        <div class="metric-caption">
-                            ALERTAS ATIVOS
-                        </div>
+    background: #edf3f7;
+    color: var(--primary);
 
-                        <div class="metric-number">
-                            03
-                        </div>
+    font-size: 13px;
+    font-weight: 800;
+}
 
-                        <div class="metric-bottom">
+.metric-icon.warning {
+    background: #f8f1e7;
+    color: var(--warning);
+}
 
-                            <span class="trend attention">
-                                01 atenção
-                            </span>
+.metric-card > strong {
+    display: block;
 
-                            <span>
-                                requer acompanhamento
-                            </span>
+    margin-top: 18px;
 
-                        </div>
+    font-family: "Manrope", sans-serif;
+    font-size: 31px;
+    letter-spacing: -1.5px;
+}
 
-                    </div>
+.metric-footer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 
+    margin-top: 9px;
 
-                    <div class="hero-metric">
+    font-size: 10px;
+}
 
-                        <div class="metric-caption">
-                            MUNICÍPIOS
-                        </div>
+.metric-footer span {
+    font-weight: 800;
+}
 
-                        <div class="metric-number">
-                            48
-                        </div>
+.metric-footer small {
+    color: var(--muted);
+}
 
-                        <div class="metric-bottom">
+.positive span {
+    color: var(--success);
+}
 
-                            <span class="trend neutral">
-                                MONITORADOS
-                            </span>
+.warning-text span {
+    color: var(--warning);
+}
 
-                            <span>
-                                região selecionada
-                            </span>
 
-                        </div>
+/* =========================
+   PANELS
+========================= */
 
-                    </div>
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.65fr 1fr;
+    gap: 14px;
 
-                </div>
+    margin-top: 14px;
+}
 
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1.65fr 1fr;
+    gap: 14px;
 
-                <div class="dashboard-layout">
+    margin-top: 14px;
+}
 
-                    <!-- CHART -->
+.panel {
+    background: white;
 
-                    <div class="premium-card chart-panel">
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
 
-                        <div class="panel-heading">
+.panel-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
 
-                            <div>
+    padding: 24px 24px 0;
+}
 
-                                <span class="panel-kicker">
-                                    TENDÊNCIA
-                                </span>
+.panel-heading h2 {
+    margin-top: 6px;
 
-                                <h2>
-                                    Evolução epidemiológica
-                                </h2>
+    font-family: "Manrope", sans-serif;
+    font-size: 17px;
+    letter-spacing: -.5px;
+}
 
-                            </div>
+.more-button {
+    color: var(--muted);
+    background: transparent;
+}
 
+.text-button {
+    background: transparent;
 
-                            <div class="chart-controls">
+    color: var(--primary);
 
-                                <button
-                                    class="chart-filter active"
-                                    data-period="6m"
-                                >
-                                    6 meses
-                                </button>
+    font-size: 10px;
+    font-weight: 700;
+}
 
-                                <button
-                                    class="chart-filter"
-                                    data-period="1a"
-                                >
-                                    1 ano
-                                </button>
 
-                            </div>
+/* =========================
+   CHART
+========================= */
 
-                        </div>
+.chart-info {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
 
+    padding: 20px 24px 8px;
+}
 
-                        <div class="chart-legend">
+.chart-info strong {
+    font-family: "Manrope", sans-serif;
+    font-size: 24px;
+}
 
-                            <span>
-                                <i class="legend-dot"></i>
-                                Casos monitorados
-                            </span>
+.chart-info span {
+    color: var(--muted);
+    font-size: 10px;
+}
 
-                            <select id="chartDisease">
+.chart {
+    height: 270px;
 
-                                <option value="todos">
-                                    Todas as doenças
-                                </option>
+    display: flex;
 
-                                <option value="dengue">
-                                    Dengue
-                                </option>
+    padding: 8px 24px 22px;
+}
 
-                                <option value="influenza">
-                                    Influenza
-                                </option>
+.chart-y {
+    width: 30px;
 
-                                <option value="chikungunya">
-                                    Chikungunya
-                                </option>
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-                            </select>
+    padding: 2px 0 25px;
 
-                        </div>
+    color: #a9b1b7;
 
+    font-size: 9px;
+}
 
-                        <div class="main-chart">
+.chart-area {
+    position: relative;
 
-                            <div class="chart-values">
+    flex: 1;
+}
 
-                                <span>3.000</span>
-                                <span>2.000</span>
-                                <span>1.000</span>
-                                <span>0</span>
+.grid-line {
+    position: relative;
 
-                            </div>
+    height: 20%;
 
+    border-top: 1px solid #eef1f3;
+}
 
-                            <div class="chart-canvas">
+.chart-line {
+    position: absolute;
 
-                                <div class="chart-grid-line line-1"></div>
-                                <div class="chart-grid-line line-2"></div>
-                                <div class="chart-grid-line line-3"></div>
-                                <div class="chart-grid-line line-4"></div>
+    inset: 0 0 25px 0;
 
+    width: 100%;
+    height: calc(100% - 25px);
 
-                                <svg
-                                    viewBox="0 0 900 300"
-                                    preserveAspectRatio="none"
-                                >
+    overflow: visible;
+}
 
-                                    <defs>
+.chart-line .line {
+    fill: none;
 
-                                        <linearGradient
-                                            id="premiumGradient"
-                                            x1="0"
-                                            y1="0"
-                                            x2="0"
-                                            y2="1"
-                                        >
+    stroke: var(--primary);
+    stroke-width: 3;
 
-                                            <stop
-                                                offset="0%"
-                                                stop-color="#167A5B"
-                                                stop-opacity=".20"
-                                            />
+    vector-effect: non-scaling-stroke;
+}
 
-                                            <stop
-                                                offset="100%"
-                                                stop-color="#167A5B"
-                                                stop-opacity="0"
-                                            />
+.chart-fill {
+    fill: url(#chartFill);
+}
 
-                                        </linearGradient>
+.chart-x {
+    position: absolute;
 
-                                    </defs>
+    left: 0;
+    right: 0;
+    bottom: 0;
 
+    display: flex;
+    justify-content: space-between;
 
-                                    <path
-                                        class="chart-fill"
-                                        d="M0,238
-                                        C80,225 100,210 155,218
-                                        C210,226 245,145 300,165
-                                        C355,185 390,130 445,147
-                                        C500,164 530,105 585,119
-                                        C640,133 680,80 735,92
-                                        C790,104 830,58 900,65
-                                        L900,300 L0,300 Z"
-                                    />
+    color: #a9b1b7;
 
+    font-size: 9px;
+}
 
-                                    <path
-                                        class="chart-stroke"
-                                        d="M0,238
-                                        C80,225 100,210 155,218
-                                        C210,226 245,145 300,165
-                                        C355,185 390,130 445,147
-                                        C500,164 530,105 585,119
-                                        C640,133 680,80 735,92
-                                        C790,104 830,58 900,65"
-                                    />
 
-                                    <circle
-                                        class="chart-point"
-                                        cx="900"
-                                        cy="65"
-                                        r="5"
-                                    />
+/* =========================
+   ALERTS
+========================= */
 
-                                </svg>
+.alert-list {
+    padding: 10px 24px 20px;
+}
 
+.alert-item {
+    position: relative;
 
-                                <div class="chart-months">
+    display: grid;
+    grid-template-columns: 8px 1fr auto;
 
-                                    <span>MAR</span>
-                                    <span>ABR</span>
-                                    <span>MAI</span>
-                                    <span>JUN</span>
-                                    <span>JUL</span>
-                                    <span>AGO</span>
+    gap: 12px;
 
-                                </div>
+    padding: 17px 0;
 
-                            </div>
+    border-bottom: 1px solid #f0f2f3;
+}
 
-                        </div>
+.alert-item:last-child {
+    border-bottom: 0;
+}
 
-                    </div>
+.alert-status {
+    width: 6px;
+    height: 6px;
 
+    margin-top: 5px;
 
-                    <!-- ALERTS -->
+    border-radius: 50%;
 
-                    <div class="premium-card alert-panel">
+    background: #c4ccd1;
+}
 
-                        <div class="panel-heading">
+.alert-item.critical .alert-status {
+    background: var(--danger);
+}
 
-                            <div>
+.alert-item strong {
+    font-size: 11px;
+}
 
-                                <span class="panel-kicker">
-                                    ATENÇÃO
-                                </span>
+.alert-item p {
+    margin-top: 4px;
 
-                                <h2>
-                                    Alertas recentes
-                                </h2>
+    color: var(--muted);
 
-                            </div>
+    font-size: 10px;
+}
 
-                            <button
-                                class="minimal-arrow"
-                                data-section="alertas"
-                            >
-                                →
-                            </button>
+.alert-item small {
+    display: block;
 
-                        </div>
+    margin-top: 7px;
 
+    color: #aeb5bb;
 
-                        <div class="alert-stack">
+    font-size: 9px;
+}
 
-                            <article class="alert-card critical">
+.alert-tag {
+    height: fit-content;
 
-                                <div class="alert-card-top">
+    padding: 5px 7px;
 
-                                    <span class="alert-status">
-                                        ALTA PRIORIDADE
-                                    </span>
+    border-radius: 5px;
 
-                                    <span class="alert-date">
-                                        2h
-                                    </span>
+    background: #f7eaea;
+    color: var(--danger);
 
-                                </div>
+    font-size: 8px;
+    font-weight: 800;
+}
 
-                                <h3>
-                                    Aumento de casos de dengue
-                                </h3>
+.alert-tag.neutral {
+    background: #f1f3f4;
+    color: #7d878f;
+}
 
-                                <p>
-                                    Região Norte
-                                </p>
 
-                            </article>
+/* =========================
+   DISEASES
+========================= */
 
+.disease-panel {
+    padding-bottom: 20px;
+}
 
-                            <article class="alert-card warning">
+.disease-list {
+    padding: 18px 24px 0;
+}
 
-                                <div class="alert-card-top">
+.disease-row {
+    display: grid;
+    grid-template-columns: 160px 1fr 35px;
+    align-items: center;
+    gap: 18px;
 
-                                    <span class="alert-status">
-                                        MONITORAMENTO
-                                    </span>
+    padding: 10px 0;
+}
 
-                                    <span class="alert-date">
-                                        5h
-                                    </span>
+.disease-name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-                                </div>
+.disease-number {
+    color: #a6afb6;
+    font-size: 9px;
+}
 
-                                <h3>
-                                    Baixa cobertura vacinal
-                                </h3>
+.disease-name strong {
+    font-size: 11px;
+}
 
-                                <p>
-                                    Região Sul
-                                </p>
+.disease-row > strong {
+    color: var(--primary);
 
-                            </article>
+    text-align: right;
 
+    font-size: 10px;
+}
 
-                            <article class="alert-card informational">
+.disease-bar {
+    height: 5px;
 
-                                <div class="alert-card-top">
+    overflow: hidden;
 
-                                    <span class="alert-status">
-                                        INFORMATIVO
-                                    </span>
+    border-radius: 10px;
 
-                                    <span class="alert-date">
-                                        1d
-                                    </span>
+    background: #eef1f3;
+}
 
-                                </div>
+.disease-bar span {
+    display: block;
 
-                                <h3>
-                                    Monitoramento de influenza iniciado
-                                </h3>
+    height: 100%;
 
-                                <p>
-                                    Região Centro
-                                </p>
+    border-radius: inherit;
 
-                            </article>
+    background: var(--primary);
+}
 
-                        </div>
 
-                    </div>
+/* =========================
+   UPDATE
+========================= */
 
-                </div>
+.update-panel {
+    padding-bottom: 24px;
+}
 
+.update-content {
+    padding: 32px 24px 5px;
+}
 
-                <!-- DISEASE TABLE -->
+.update-icon {
+    width: 42px;
+    height: 42px;
 
-                <div class="premium-card diseases-panel">
+    display: grid;
+    place-items: center;
 
-                    <div class="panel-heading">
+    border-radius: 12px;
 
-                        <div>
+    background: #edf5f1;
+    color: var(--success);
 
-                            <span class="panel-kicker">
-                                INDICADORES
-                            </span>
+    font-weight: 800;
+}
 
-                            <h2>
-                                Doenças monitoradas
-                            </h2>
+.update-content strong {
+    display: block;
 
-                        </div>
+    margin-top: 20px;
 
-                        <button
-                            class="minimal-link"
-                            data-section="monitoramento"
-                        >
-                            Ver monitoramento
-                            <span>→</span>
-                        </button>
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+}
 
-                    </div>
+.update-content p {
+    max-width: 260px;
 
+    margin-top: 7px;
 
-                    <div class="disease-list">
+    color: var(--muted);
 
-                        <div class="disease-list-header">
+    font-size: 11px;
+    line-height: 1.6;
+}
 
-                            <span>
-                                DOENÇA
-                            </span>
+.update-time {
+    display: block;
 
-                            <span>
-                                CASOS
-                            </span>
+    margin-top: 20px;
 
-                            <span>
-                                VARIAÇÃO
-                            </span>
+    color: var(--muted-light);
 
-                            <span>
-                                SITUAÇÃO
-                            </span>
+    font-size: 9px;
+}
 
-                        </div>
 
+/* =========================
+   EMPTY SECTIONS
+========================= */
 
-                        <div class="disease-row">
+.empty-section {
+    min-height: 390px;
 
-                            <div class="disease-title">
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-                                <span class="disease-symbol dengue-symbol"></span>
+    padding: 50px;
 
-                                <div>
+    background: white;
 
-                                    <strong>
-                                        Dengue
-                                    </strong>
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
 
-                                    <small>
-                                        Arbovirose
-                                    </small>
+    text-align: center;
+}
 
-                                </div>
+.empty-icon {
+    width: 54px;
+    height: 54px;
 
-                            </div>
+    display: grid;
+    place-items: center;
 
-                            <strong>
-                                5.842
-                            </strong>
+    border-radius: 16px;
 
-                            <span class="change negative">
-                                ↑ 14,2%
-                            </span>
+    background: #edf3f7;
+    color: var(--primary);
 
-                            <span class="status-pill risk">
-                                Atenção
-                            </span>
+    font-size: 22px;
+    font-weight: 800;
+}
 
-                        </div>
+.empty-section h2 {
+    margin-top: 20px;
 
+    font-family: "Manrope", sans-serif;
+    font-size: 20px;
+}
 
-                        <div class="disease-row">
+.empty-section p {
+    max-width: 440px;
 
-                            <div class="disease-title">
+    margin-top: 8px;
 
-                                <span class="disease-symbol flu-symbol"></span>
+    color: var(--muted);
 
-                                <div>
+    font-size: 12px;
+    line-height: 1.6;
+}
 
-                                    <strong>
-                                        Influenza
-                                    </strong>
+.primary-small {
+    padding: 11px 15px;
 
-                                    <small>
-                                        Síndrome respiratória
-                                    </small>
+    border-radius: 9px;
 
-                                </div>
+    background: var(--primary);
+    color: white;
 
-                            </div>
+    font-size: 10px;
+    font-weight: 700;
+}
 
-                            <strong>
-                                2.316
-                            </strong>
 
-                            <span class="change positive">
-                                ↓ 4,8%
-                            </span>
+/* =========================
+   SETTINGS
+========================= */
 
-                            <span class="status-pill stable">
-                                Estável
-                            </span>
+.settings-card {
+    background: white;
 
-                        </div>
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
 
+.settings-row {
+    min-height: 82px;
 
-                        <div class="disease-row">
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-                            <div class="disease-title">
+    padding: 20px 24px;
 
-                                <span class="disease-symbol chik-symbol"></span>
+    border-bottom: 1px solid var(--border);
+}
 
-                                <div>
+.settings-row:last-child {
+    border-bottom: 0;
+}
 
-                                    <strong>
-                                        Chikungunya
-                                    </strong>
+.settings-row strong {
+    display: block;
+    font-size: 12px;
+}
 
-                                    <small>
-                                        Arbovirose
-                                    </small>
+.settings-row span {
+    display: block;
 
-                                </div>
+    margin-top: 5px;
 
-                            </div>
+    color: var(--muted);
 
-                            <strong>
-                                1.428
-                            </strong>
+    font-size: 10px;
+}
 
-                            <span class="change negative">
-                                ↑ 6,1%
-                            </span>
+.toggle input {
+    display: none;
+}
 
-                            <span class="status-pill watch">
-                                Monitorar
-                            </span>
+.toggle span {
+    display: block;
 
-                        </div>
+    width: 38px;
+    height: 21px;
 
-                    </div>
+    padding: 3px;
 
-                </div>
+    border-radius: 30px;
 
-            </section>
+    background: #dfe4e7;
 
+    transition: .2s;
+}
 
-            <!-- ==================================================
-                 MONITORAMENTO
-            ================================================== -->
+.toggle span::after {
+    content: "";
 
-            <section
-                class="page-section"
-                id="monitoramento"
-            >
+    display: block;
 
-                <div class="hero-heading compact">
+    width: 15px;
+    height: 15px;
 
-                    <div>
+    border-radius: 50%;
 
-                        <span class="section-kicker">
-                            MONITORAMENTO · EPIDEMIOLOGIA
-                        </span>
+    background: white;
 
-                        <h1>
-                            O que está
-                            <em>acontecendo?</em>
-                        </h1>
+    transition: .2s;
+}
 
-                        <p>
-                            Acompanhe os principais agravos monitorados
-                            pela plataforma.
-                        </p>
+.toggle input:checked + span {
+    background: var(--primary);
+}
 
-                    </div>
+.toggle input:checked + span::after {
+    transform: translateX(17px);
+}
 
-                </div>
 
+/* =========================
+   RESPONSIVE
+========================= */
 
-                <div class="disease-feature-grid">
+@media (max-width: 1100px) {
 
-                    <article class="disease-feature dengue-feature">
+    .login-content {
+        gap: 5vw;
+    }
 
-                        <div class="feature-top">
-                            <span>01</span>
-                            <span>ARBOVIROSE</span>
-                        </div>
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-                        <div class="feature-icon"></div>
+    .dashboard-grid,
+    .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
-                        <h2>Dengue</h2>
 
-                        <strong>
-                            5.842
-                        </strong>
+@media (max-width: 800px) {
 
-                        <span class="feature-change negative">
-                            ↑ 14,2% no período
-                        </span>
+    .login-screen {
+        padding: 28px 22px;
+    }
 
-                        <p>
-                            Casos monitorados
-                        </p>
+    .login-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
 
-                    </article>
+        padding: 60px 0;
+    }
 
+    .login-copy h1 {
+        font-size: 46px;
+    }
 
-                    <article class="disease-feature flu-feature">
+    .login-card {
+        max-width: none;
+    }
 
-                        <div class="feature-top">
-                            <span>02</span>
-                            <span>RESPIRATÓRIA</span>
-                        </div>
+    .app.visible {
+        display: block;
+    }
 
-                        <div class="feature-icon"></div>
+    .sidebar {
+        display: none;
+    }
 
-                        <h2>Influenza</h2>
+    .content {
+        padding: 0 18px 40px;
+    }
 
-                        <strong>
-                            2.316
-                        </strong>
+    .topbar {
+        height: 70px;
+    }
 
-                        <span class="feature-change positive">
-                            ↓ 4,8% no período
-                        </span>
+    .mobile-brand {
+        display: flex;
+        margin-right: auto;
+    }
 
-                        <p>
-                            Casos monitorados
-                        </p>
+    .mobile-brand strong {
+        font-family: "Manrope", sans-serif;
+        font-size: 16px;
+    }
 
-                    </article>
+    .user > div:last-child {
+        display: none;
+    }
 
+    .dashboard-section {
+        padding-top: 30px;
+    }
 
-                    <article class="disease-feature chik-feature">
+    .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
 
-                        <div class="feature-top">
-                            <span>03</span>
-                            <span>ARBOVIROSE</span>
-                        </div>
+    .metrics-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 
-                        <div class="feature-icon"></div>
+    .disease-row {
+        grid-template-columns: 110px 1fr 30px;
+        gap: 10px;
+    }
+}
 
-                        <h2>Chikungunya</h2>
 
-                        <strong>
-                            1.428
-                        </strong>
+@media (max-width: 520px) {
 
-                        <span class="feature-change negative">
-                            ↑ 6,1% no período
-                        </span>
+    .login-brand {
+        margin-bottom: 20px;
+    }
 
-                        <p>
-                            Casos monitorados
-                        </p>
+    .login-content {
+        padding: 35px 0;
+    }
 
-                    </article>
+    .login-copy h1 {
+        font-size: 39px;
+        letter-spacing: -2px;
+    }
 
-                </div>
+    .login-copy > p {
+        font-size: 14px;
+    }
 
-            </section>
+    .login-features {
+        gap: 20px;
+    }
 
+    .login-card {
+        padding: 28px 22px;
+    }
 
-            <!-- ==================================================
-                 VACINAÇÃO
-            ================================================== -->
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
 
-            <section
-                class="page-section"
-                id="vacinacao"
-            >
+    .chart-panel {
+        overflow: hidden;
+    }
 
-                <div class="hero-heading compact">
+    .chart {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
 
-                    <div>
+    .panel-heading {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
 
-                        <span class="section-kicker">
-                            IMUNIZAÇÃO
-                        </span>
+    .alert-list,
+    .disease-list {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
 
-                        <h1>
-                            Cobertura
-                            <em>vacinal.</em>
-                        </h1>
+    .disease-row {
+        grid-template-columns: 90px 1fr 25px;
+    }
 
-                        <p>
-                            Uma visão simples da cobertura de vacinação.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vaccination-hero">
-
-                    <div>
-
-                        <span class="metric-caption">
-                            COBERTURA GERAL
-                        </span>
-
-                        <div class="vaccination-number">
-                            87,6<span>%</span>
-                        </div>
-
-                        <p>
-                            Meta de referência: 90%
-                        </p>
-
-                    </div>
-
-
-                    <div class="big-progress">
-
-                        <div class="big-progress-track">
-
-                            <div
-                                class="big-progress-value"
-                                style="width: 87.6%"
-                            ></div>
-
-                        </div>
-
-                        <div class="progress-labels">
-                            <span>0%</span>
-                            <span>90% meta</span>
-                            <span>100%</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vaccine-grid">
-
-                    <article class="vaccine-card">
-
-                        <span>
-                            BCG
-                        </span>
-
-                        <strong>
-                            94%
-                        </strong>
-
-                        <div class="mini-progress">
-                            <div style="width: 94%"></div>
-                        </div>
-
-                    </article>
-
-
-                    <article class="vaccine-card">
-
-                        <span>
-                            Poliomielite
-                        </span>
-
-                        <strong>
-                            89%
-                        </strong>
-
-                        <div class="mini-progress">
-                            <div style="width: 89%"></div>
-                        </div>
-
-                    </article>
-
-
-                    <article class="vaccine-card">
-
-                        <span>
-                            Tríplice viral
-                        </span>
-
-                        <strong>
-                            86%
-                        </strong>
-
-                        <div class="mini-progress">
-                            <div style="width: 86%"></div>
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </section>
-
-
-            <!-- ==================================================
-                 ALERTAS
-            ================================================== -->
-
-            <section
-                class="page-section"
-                id="alertas"
-            >
-
-                <div class="hero-heading compact">
-
-                    <div>
-
-                        <span class="section-kicker">
-                            MONITORAMENTO DE RISCO
-                        </span>
-
-                        <h1>
-                            Alertas que
-                            <em>importam.</em>
-                        </h1>
-
-                        <p>
-                            Situações que merecem atenção no período.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="email-notification-banner">
-
-                    <div class="email-icon">
-
-                        <svg viewBox="0 0 24 24">
-
-                            <path
-                                d="M4 6.5h16v11H4z"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-
-                            <path
-                                d="m4.5 7 7.5 6 7.5-6"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-
-                        </svg>
-
-                    </div>
-
-                    <div>
-
-                        <span>
-                            NOTIFICAÇÕES
-                        </span>
-
-                        <strong>
-                            Alertas podem ser enviados por e-mail.
-                        </strong>
-
-                        <p>
-                            O endereço cadastrado será utilizado para
-                            comunicações importantes da plataforma.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="alert-page-list">
-
-                    <article class="large-alert critical-alert">
-
-                        <div class="large-alert-index">
-                            01
-                        </div>
-
-                        <div class="large-alert-content">
-
-                            <span>
-                                ALTA PRIORIDADE
-                            </span>
-
-                            <h2>
-                                Aumento de casos de dengue
-                            </h2>
-
-                            <p>
-                                Crescimento acima do padrão esperado
-                                na região monitorada.
-                            </p>
-
-                        </div>
-
-                        <div class="large-alert-status">
-                            Atenção
-                        </div>
-
-                    </article>
-
-
-                    <article class="large-alert warning-alert">
-
-                        <div class="large-alert-index">
-                            02
-                        </div>
-
-                        <div class="large-alert-content">
-
-                            <span>
-                                MONITORAMENTO
-                            </span>
-
-                            <h2>
-                                Baixa cobertura vacinal
-                            </h2>
-
-                            <p>
-                                Cobertura abaixo da meta de referência
-                                para determinado grupo.
-                            </p>
-
-                        </div>
-
-                        <div class="large-alert-status">
-                            Monitorar
-                        </div>
-
-                    </article>
-
-
-                    <article class="large-alert info-alert">
-
-                        <div class="large-alert-index">
-                            03
-                        </div>
-
-                        <div class="large-alert-content">
-
-                            <span>
-                                INFORMATIVO
-                            </span>
-
-                            <h2>
-                                Monitoramento de influenza iniciado
-                            </h2>
-
-                            <p>
-                                Nova região adicionada ao acompanhamento
-                                epidemiológico.
-                            </p>
-
-                        </div>
-
-                        <div class="large-alert-status">
-                            Informativo
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </section>
-
-
-            <!-- ==================================================
-                 DADOS
-            ================================================== -->
-
-            <section
-                class="page-section"
-                id="dados"
-            >
-
-                <div class="hero-heading compact">
-
-                    <div>
-
-                        <span class="section-kicker">
-                            TRANSPARÊNCIA
-                        </span>
-
-                        <h1>
-                            De onde vêm
-                            <em>os dados?</em>
-                        </h1>
-
-                        <p>
-                            O Sensus foi pensado para trabalhar com
-                            informações públicas e rastreáveis.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="source-feature">
-
-                    <div class="source-feature-number">
-                        01
-                    </div>
-
-                    <div class="source-feature-content">
-
-                        <span>
-                            FONTE PRINCIPAL
-                        </span>
-
-                        <h2>
-                            DataSUS
-                        </h2>
-
-                        <p>
-                            Base pública do Ministério da Saúde utilizada
-                            como referência para informações relacionadas
-                            à saúde pública.
-                        </p>
-
-                        <div class="source-status-large">
-                            <span></span>
-                            Integração planejada
-                        </div>
-
-                    </div>
-
-                    <div class="source-letter">
-                        D
-                    </div>
-
-                </div>
-
-
-                <div class="source-feature">
-
-                    <div class="source-feature-number">
-                        02
-                    </div>
-
-                    <div class="source-feature-content">
-
-                        <span>
-                            IMUNIZAÇÃO
-                        </span>
-
-                        <h2>
-                            Programa Nacional de Imunizações
-                        </h2>
-
-                        <p>
-                            Referência para informações relacionadas
-                            à vacinação e cobertura vacinal.
-                        </p>
-
-                        <div class="source-status-large">
-                            <span></span>
-                            Integração planejada
-                        </div>
-
-                    </div>
-
-                    <div class="source-letter">
-                        P
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ==================================================
-                 PERFIL
-            ================================================== -->
-
-            <section
-                class="page-section"
-                id="perfil"
-            >
-
-                <div class="hero-heading compact">
-
-                    <div>
-
-                        <span class="section-kicker">
-                            SUA CONTA
-                        </span>
-
-                        <h1>
-                            Meu
-                            <em>perfil.</em>
-                        </h1>
-
-                        <p>
-                            Gerencie seu acesso e suas preferências.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="profile-hero">
-
-                    <div
-                        class="profile-big-avatar"
-                        id="profileAvatar"
-                    >
-                        US
-                    </div>
-
-                    <div>
-
-                        <span>
-                            USUÁRIO SENSUS
-                        </span>
-
-                        <h2 id="profileName">
-                            Usuário
-                        </h2>
-
-                        <p id="profileEmail">
-                            usuario@email.com
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="settings-section">
-
-                    <div class="settings-heading">
-
-                        <span>
-                            PREFERÊNCIAS
-                        </span>
-
-                        <h2>
-                            Comunicação
-                        </h2>
-
-                    </div>
-
-
-                    <div class="setting-row">
-
-                        <div>
-
-                            <strong>
-                                Alertas por e-mail
-                            </strong>
-
-                            <p>
-                                Receba comunicações importantes
-                                sobre alertas e atualizações.
-                            </p>
-
-                        </div>
-
-
-                        <label class="switch">
-
-                            <input
-                                type="checkbox"
-                                id="emailAlertsToggle"
-                                checked
-                            >
-
-                            <span></span>
-
-                        </label>
-
-                    </div>
-
-                </div>
-
-
-                <button
-                    class="logout-main"
-                    id="logoutButton"
-                >
-                    Sair da conta
-                    <span>→</span>
-                </button>
-
-            </section>
-
-        </div>
-
-    </main>
-
-</div>
-
-
-<script src="js/app.js"></script>
-
-</body>
-</html>
+    .login-footer {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
