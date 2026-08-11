@@ -1,116 +1,169 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    /*
-    ========================================
-    ELEMENTOS PRINCIPAIS
-    ========================================
-    */
+    /* ==================================================
+       ELEMENTOS
+    ================================================== */
 
-    const loginScreen = document.getElementById("loginScreen");
-    const app = document.getElementById("app");
+    const loginPage =
+        document.getElementById("loginPage");
 
-    const loginForm = document.getElementById("loginForm");
-    const loginMessage = document.getElementById("loginMessage");
+    const app =
+        document.getElementById("app");
 
-    const password = document.getElementById("password");
-    const passwordToggle = document.getElementById("passwordToggle");
+    const loginForm =
+        document.getElementById("loginForm");
+
+    const loginMessage =
+        document.getElementById("loginMessage");
+
+    const emailInput =
+        document.getElementById("email");
+
+    const passwordInput =
+        document.getElementById("password");
+
+    const passwordToggle =
+        document.getElementById("passwordToggle");
 
     const forgotPassword =
         document.getElementById("forgotPassword");
 
-    const logoutButton =
-        document.getElementById("logoutButton");
-
     const rememberMe =
         document.getElementById("rememberMe");
 
+    const logoutButton =
+        document.getElementById("logoutButton");
 
-    /*
-    ========================================
-    LOGIN DEMONSTRATIVO
-    ========================================
-    */
+    const emailAlertsToggle =
+        document.getElementById("emailAlertsToggle");
+
+
+    /* ==================================================
+       UTILITÁRIOS DE USUÁRIO
+    ================================================== */
 
     function getSavedUser() {
 
-        const savedUser =
+        const stored =
             localStorage.getItem("sensus_user");
 
-        if (!savedUser) {
+        if (!stored) {
             return null;
         }
 
         try {
-            return JSON.parse(savedUser);
+            return JSON.parse(stored);
         } catch {
             return null;
         }
     }
 
 
-    function updateUserInterface(user) {
+    function createUserName(email) {
 
-        if (!user) return;
-
-        const email = user.email;
-
-        const name =
+        const username =
             email
                 .split("@")[0]
-                .replace(/[._-]/g, " ")
-                .replace(/\b\w/g, letter => letter.toUpperCase());
+                .replace(/[._-]/g, " ");
 
-        const initials =
-            name
-                .split(" ")
-                .slice(0, 2)
-                .map(word => word[0])
-                .join("")
-                .toUpperCase();
-
-
-        const headerName =
-            document.getElementById("headerName");
-
-        const headerEmail =
-            document.getElementById("headerEmail");
-
-        const headerAvatar =
-            document.getElementById("headerAvatar");
-
-        const profileName =
-            document.getElementById("profileName");
-
-        const profileEmail =
-            document.getElementById("profileEmail");
-
-        const profileAvatar =
-            document.getElementById("profileAvatar");
-
-
-        if (headerName)
-            headerName.textContent = name;
-
-        if (headerEmail)
-            headerEmail.textContent = email;
-
-        if (headerAvatar)
-            headerAvatar.textContent = initials;
-
-        if (profileName)
-            profileName.textContent = name;
-
-        if (profileEmail)
-            profileEmail.textContent = email;
-
-        if (profileAvatar)
-            profileAvatar.textContent = initials;
+        return username
+            .split(" ")
+            .filter(Boolean)
+            .map(word =>
+                word.charAt(0).toUpperCase() +
+                word.slice(1)
+            )
+            .join(" ");
     }
 
 
-    function enterApp(user) {
+    function createInitials(name) {
 
-        loginScreen.hidden = true;
+        return name
+            .split(" ")
+            .filter(Boolean)
+            .slice(0, 2)
+            .map(word => word.charAt(0))
+            .join("")
+            .toUpperCase();
+    }
+
+
+    function updateUserInterface(user) {
+
+        if (!user) {
+            return;
+        }
+
+        const name =
+            createUserName(user.email);
+
+        const initials =
+            createInitials(name);
+
+
+        const elements = {
+
+            sidebarName:
+                document.getElementById("sidebarName"),
+
+            sidebarEmail:
+                document.getElementById("sidebarEmail"),
+
+            sidebarAvatar:
+                document.getElementById("sidebarAvatar"),
+
+            topbarName:
+                document.getElementById("topbarName"),
+
+            topbarAvatar:
+                document.getElementById("topbarAvatar"),
+
+            profileName:
+                document.getElementById("profileName"),
+
+            profileEmail:
+                document.getElementById("profileEmail"),
+
+            profileAvatar:
+                document.getElementById("profileAvatar")
+
+        };
+
+
+        elements.sidebarName.textContent =
+            name;
+
+        elements.sidebarEmail.textContent =
+            user.email;
+
+        elements.sidebarAvatar.textContent =
+            initials;
+
+        elements.topbarName.textContent =
+            name;
+
+        elements.topbarAvatar.textContent =
+            initials;
+
+        elements.profileName.textContent =
+            name;
+
+        elements.profileEmail.textContent =
+            user.email;
+
+        elements.profileAvatar.textContent =
+            initials;
+    }
+
+
+    /* ==================================================
+       LOGIN / LOGOUT
+    ================================================== */
+
+    function enterApplication(user) {
+
+        loginPage.hidden = true;
 
         app.hidden = false;
 
@@ -121,169 +174,193 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function logout() {
 
-        localStorage.removeItem("sensus_user");
+        localStorage.removeItem(
+            "sensus_user"
+        );
 
         app.hidden = true;
 
-        loginScreen.hidden = false;
+        loginPage.hidden = false;
 
         loginForm.reset();
 
         loginMessage.textContent = "";
 
+        loginMessage.style.color =
+            "var(--red)";
+
     }
 
 
-    /*
-    ========================================
-    LOGIN
-    ========================================
-    */
+    loginForm.addEventListener(
+        "submit",
+        event => {
 
-    loginForm.addEventListener("submit", event => {
-
-        event.preventDefault();
-
-        const email =
-            document
-                .getElementById("email")
-                .value
-                .trim()
-                .toLowerCase();
-
-        const passwordValue =
-            password.value;
+            event.preventDefault();
 
 
-        if (!email || !passwordValue) {
+            const email =
+                emailInput.value
+                    .trim()
+                    .toLowerCase();
 
-            loginMessage.textContent =
-                "Preencha seu e-mail e sua senha.";
-
-            return;
-
-        }
-
-
-        /*
-        IMPORTANTE:
-
-        Esta é apenas a versão visual.
-
-        Na próxima etapa o login será conectado
-        ao Supabase Auth.
-
-        A senha NÃO deve ser armazenada
-        no localStorage.
-        */
+            const password =
+                passwordInput.value;
 
 
-        const user = {
-            email: email
-        };
+            if (!email || !password) {
+
+                loginMessage.textContent =
+                    "Preencha seu e-mail e sua senha.";
+
+                return;
+            }
 
 
-        if (rememberMe.checked) {
+            /*
+             * VERSÃO VISUAL
+             *
+             * A autenticação real será feita
+             * posteriormente por um serviço
+             * de autenticação.
+             *
+             * A senha não é armazenada.
+             */
 
-            localStorage.setItem(
-                "sensus_user",
-                JSON.stringify(user)
-            );
+            const user = {
+                email
+            };
+
+
+            if (rememberMe.checked) {
+
+                localStorage.setItem(
+                    "sensus_user",
+                    JSON.stringify(user)
+                );
+
+            }
+
+
+            loginMessage.textContent = "";
+
+            enterApplication(user);
 
         }
-
-
-        loginMessage.textContent = "";
-
-        enterApp(user);
-
-    });
-
-
-    /*
-    ========================================
-    MOSTRAR / OCULTAR SENHA
-    ========================================
-    */
-
-    passwordToggle.addEventListener("click", () => {
-
-        if (password.type === "password") {
-
-            password.type = "text";
-
-            passwordToggle.textContent = "◌";
-
-        } else {
-
-            password.type = "password";
-
-            passwordToggle.textContent = "◉";
-
-        }
-
-    });
-
-
-    /*
-    ========================================
-    RECUPERAÇÃO DE SENHA
-    ========================================
-    */
-
-    forgotPassword.addEventListener("click", () => {
-
-        const email =
-            document
-                .getElementById("email")
-                .value
-                .trim();
-
-
-        if (!email) {
-
-            loginMessage.textContent =
-                "Digite seu e-mail para receber o link de recuperação.";
-
-            return;
-
-        }
-
-
-        loginMessage.style.color = "var(--green)";
-
-        loginMessage.textContent =
-            "Em breve enviaremos o link de recuperação por e-mail.";
-
-    });
-
-
-    /*
-    ========================================
-    LOGOUT
-    ========================================
-    */
-
-    logoutButton.addEventListener(
-        "click",
-        logout
     );
 
 
-    /*
-    ========================================
-    NAVEGAÇÃO
-    ========================================
-    */
+    /* ==================================================
+       MOSTRAR SENHA
+    ================================================== */
+
+    passwordToggle.addEventListener(
+        "click",
+        () => {
+
+            const showing =
+                passwordInput.type === "text";
+
+
+            passwordInput.type =
+                showing
+                    ? "password"
+                    : "text";
+
+
+            passwordToggle.setAttribute(
+                "aria-label",
+                showing
+                    ? "Mostrar senha"
+                    : "Ocultar senha"
+            );
+
+        }
+    );
+
+
+    /* ==================================================
+       RECUPERAÇÃO DE SENHA
+    ================================================== */
+
+    forgotPassword.addEventListener(
+        "click",
+        () => {
+
+            const email =
+                emailInput.value.trim();
+
+
+            if (!email) {
+
+                loginMessage.style.color =
+                    "var(--red)";
+
+                loginMessage.textContent =
+                    "Digite seu e-mail primeiro.";
+
+                emailInput.focus();
+
+                return;
+            }
+
+
+            loginMessage.style.color =
+                "var(--green)";
+
+            loginMessage.textContent =
+                "O link de recuperação será enviado por e-mail.";
+
+        }
+    );
+
+
+    /* ==================================================
+       NAVEGAÇÃO
+    ================================================== */
 
     const navItems =
-        document.querySelectorAll(".nav-item");
+        document.querySelectorAll(
+            ".nav-item"
+        );
 
     const sections =
-        document.querySelectorAll(".page-section");
+        document.querySelectorAll(
+            ".page-section"
+        );
 
-    const sectionLinks =
-        document.querySelectorAll("[data-section-link]");
+    const sectionButtons =
+        document.querySelectorAll(
+            "[data-section]"
+        );
+
+    const breadcrumb =
+        document.getElementById(
+            "breadcrumbCurrent"
+        );
+
+
+    const sectionNames = {
+
+        dashboard:
+            "Dashboard",
+
+        monitoramento:
+            "Doenças",
+
+        vacinacao:
+            "Vacinação",
+
+        alertas:
+            "Alertas",
+
+        dados:
+            "Fontes de dados",
+
+        perfil:
+            "Meu perfil"
+
+    };
 
 
     function showSection(sectionId) {
@@ -298,32 +375,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         const target =
-            document.getElementById(sectionId);
-
-
-        if (target) {
-
-            target.classList.add(
-                "active-section"
+            document.getElementById(
+                sectionId
             );
 
+
+        if (!target) {
+            return;
         }
+
+
+        target.classList.add(
+            "active-section"
+        );
 
 
         navItems.forEach(item => {
 
-            item.classList.remove("active");
+            item.classList.remove(
+                "active"
+            );
 
 
             if (
-                item.dataset.section === sectionId
+                item.dataset.section ===
+                sectionId
             ) {
 
-                item.classList.add("active");
+                item.classList.add(
+                    "active"
+                );
 
             }
 
         });
+
+
+        if (breadcrumb) {
+
+            breadcrumb.textContent =
+                sectionNames[sectionId]
+                || "Sensus";
+
+        }
 
 
         window.scrollTo({
@@ -334,151 +428,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    navItems.forEach(item => {
+    sectionButtons.forEach(button => {
 
-        item.addEventListener("click", () => {
-
-            showSection(
-                item.dataset.section
-            );
-
-        });
-
-    });
-
-
-    sectionLinks.forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            showSection(
-                link.dataset.sectionLink
-            );
-
-        });
-
-    });
-
-
-    /*
-    ========================================
-    PESQUISA
-    ========================================
-    */
-
-    const searchInput =
-        document.getElementById("searchInput");
-
-
-    if (searchInput) {
-
-        searchInput.addEventListener(
-            "input",
-            event => {
-
-                const search =
-                    event.target.value
-                        .toLowerCase()
-                        .trim();
-
-
-                const diseaseRows =
-                    document.querySelectorAll(
-                        ".table-row"
-                    );
-
-
-                diseaseRows.forEach(row => {
-
-                    const text =
-                        row.textContent
-                            .toLowerCase();
-
-
-                    if (text.includes(search)) {
-
-                        row.style.display =
-                            "grid";
-
-                    } else {
-
-                        row.style.display =
-                            "none";
-
-                    }
-
-                });
-
-            }
-        );
-
-    }
-
-
-    /*
-    ========================================
-    FILTRO DO GRÁFICO
-    ========================================
-    */
-
-    const chartFilter =
-        document.getElementById("chartFilter");
-
-
-    if (chartFilter) {
-
-        chartFilter.addEventListener(
-            "change",
-            event => {
-
-                console.log(
-                    "Doença selecionada:",
-                    event.target.value
-                );
-
-                /*
-                FUTURO:
-
-                Aqui entra a consulta
-                aos dados reais do DataSUS.
-                */
-
-            }
-        );
-
-    }
-
-
-    /*
-    ========================================
-    ATUALIZAÇÃO
-    ========================================
-    */
-
-    const updateElements =
-        document.querySelectorAll(".last-update");
-
-
-    updateElements.forEach(element => {
-
-        element.addEventListener(
+        button.addEventListener(
             "click",
             () => {
 
-                element.innerHTML = `
-                    <span class="update-dot"></span>
-                    Atualizando...
-                `;
+                const section =
+                    button.dataset.section;
 
 
-                setTimeout(() => {
+                if (!section) {
+                    return;
+                }
 
-                    element.innerHTML = `
-                        <span class="update-dot"></span>
-                        Atualizado agora
-                    `;
 
-                }, 1000);
+                showSection(section);
 
             }
         );
@@ -486,49 +451,137 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /*
-    ========================================
-    PREFERÊNCIAS DE E-MAIL
-    ========================================
-    */
+    /* ==================================================
+       MENU MOBILE
+    ================================================== */
 
-    const emailAlertsToggle =
+    const mobileMenu =
         document.getElementById(
-            "emailAlertsToggle"
+            "mobileMenu"
         );
 
 
-    if (emailAlertsToggle) {
+    mobileMenu.addEventListener(
+        "click",
+        () => {
 
-        emailAlertsToggle.addEventListener(
-            "change",
+            /*
+             * O menu mobile completo
+             * poderá ser expandido
+             * posteriormente.
+             */
+
+            alert(
+                "Menu mobile: navegação em desenvolvimento."
+            );
+
+        }
+    );
+
+
+    /* ==================================================
+       FILTROS DO GRÁFICO
+    ================================================== */
+
+    const chartFilters =
+        document.querySelectorAll(
+            ".chart-filter"
+        );
+
+
+    chartFilters.forEach(filter => {
+
+        filter.addEventListener(
+            "click",
             () => {
 
-                const enabled =
-                    emailAlertsToggle.checked;
-
-
-                localStorage.setItem(
-                    "sensus_email_alerts",
-                    enabled
+                chartFilters.forEach(
+                    item => {
+                        item.classList.remove(
+                            "active"
+                        );
+                    }
                 );
 
+
+                filter.classList.add(
+                    "active"
+                );
+
+
                 console.log(
-                    "Alertas por e-mail:",
-                    enabled
+                    "Período:",
+                    filter.dataset.period
                 );
 
             }
         );
 
+    });
+
+
+    const chartDisease =
+        document.getElementById(
+            "chartDisease"
+        );
+
+
+    chartDisease.addEventListener(
+        "change",
+        () => {
+
+            console.log(
+                "Doença:",
+                chartDisease.value
+            );
+
+            /*
+             * FUTURO:
+             *
+             * Aqui será feita a consulta
+             * aos dados reais.
+             */
+
+        }
+    );
+
+
+    /* ==================================================
+       PREFERÊNCIA DE E-MAIL
+    ================================================== */
+
+    const savedEmailPreference =
+        localStorage.getItem(
+            "sensus_email_alerts"
+        );
+
+
+    if (
+        savedEmailPreference !== null
+    ) {
+
+        emailAlertsToggle.checked =
+            savedEmailPreference === "true";
+
     }
 
 
-    /*
-    ========================================
-    NOTIFICAÇÕES
-    ========================================
-    */
+    emailAlertsToggle.addEventListener(
+        "change",
+        () => {
+
+            localStorage.setItem(
+                "sensus_email_alerts",
+                emailAlertsToggle.checked
+            );
+
+        }
+    );
+
+
+    /* ==================================================
+       BOTÃO DE NOTIFICAÇÕES
+    ================================================== */
 
     const emailNotifications =
         document.getElementById(
@@ -536,25 +589,19 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-    if (emailNotifications) {
+    emailNotifications.addEventListener(
+        "click",
+        () => {
 
-        emailNotifications.addEventListener(
-            "click",
-            () => {
+            showSection("perfil");
 
-                showSection("perfil");
-
-            }
-        );
-
-    }
+        }
+    );
 
 
-    /*
-    ========================================
-    SESSÃO SALVA
-    ========================================
-    */
+    /* ==================================================
+       SESSÃO SALVA
+    ================================================== */
 
     const savedUser =
         getSavedUser();
@@ -562,13 +609,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (savedUser) {
 
-        enterApp(savedUser);
+        enterApplication(
+            savedUser
+        );
 
     }
 
 
+    /* ==================================================
+       LOG
+    ================================================== */
+
     console.log(
-        "Sensus Saúde iniciado."
+        "Sensus Saúde — interface iniciada."
     );
 
 });
